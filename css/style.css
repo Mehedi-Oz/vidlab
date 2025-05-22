@@ -1,0 +1,173 @@
+body {
+  font-family: 'Merriweather', serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  background: linear-gradient(135deg, #112031, #0d47a1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.5rem;
+}
+
+#home {
+  background: linear-gradient(135deg, #112031, #0d47a1);
+  color: #fff;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10vw;
+}
+
+
+#home h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#home .lead {
+  font-size: 17px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
+}
+
+/* .theme-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  color: #fff;
+} */
+
+.theme-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  width: 1100px;
+  max-width: 100%;
+  /* This ensures responsiveness on smaller screens */
+}
+
+.btn-custom {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  background-color: #e3f2fd;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.d-flex.justify-content-center.flex-wrap {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  gap: 25px;
+  /* Adds consistent spacing between flex items */
+}
+
+/* Lab Director Section */
+.lab-director {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lab-director h2 {
+  color: #112031;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.lab-director .rounded {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: justify;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+footer img {
+  width: 160px;
+  height: auto;
+}
+
+footer {
+  background: linear-gradient(135deg, #13273d, #0d3570);
+}
+
+footer .text-start,
+footer .text-center {
+  text-align: center;
+  /* Center-align all footer content */
+}
+
+footer h5,
+footer h6 {
+  font-size: 1.5rem;
+  /* Make headings larger */
+  font-weight: bold;
+  /* Make headings bold */
+  margin-bottom: 1rem;
+  /* Add spacing below headings */
+}
+
+footer p {
+  font-size: 1rem;
+  /* Adjust paragraph font size for readability */
+  line-height: 1.6;
+  /* Improve line spacing */
+}
+
+.gallery-main {
+  height: 300px;
+  background: linear-gradient(135deg, #112031, #0d47a1);
+  color: #fff;
+}
+
+.gallery-main h2 {
+  margin-top: 90px
+}
+
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 2%;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
+}
+
+.gallery-img-container{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}

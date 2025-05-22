@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIDLab</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">VIDLab</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
+          <li class="nav-item"><a class="nav-link" href="researchs.html">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="container text-center">
+      <h1>Vision Intelligence and Data Lab</h1>
+      <p class="lead">Vision Intelligence, and Data Laboratory (VIDLab) at Lakehead University is steered by Dr. Akilan,
+        T. The lab focuses on the research and development of efficient intelligent solutions for practical problems
+        using computer vision, image processing, deep learning, machine learning, and large data analytics.</p>
+      <div class="theme-box">
+        <h5><strong>The following are some of the ongoing research themes:</strong></h5>
+        <ul class="list-unstyled">
+          <li>&bull; Semantic segmentation for intelligence transportation, healthcare and medical diagnosis, and
+            precision agriculture.</li>
+          <li>&bull; Lidar point cloud analysis for object detection and tracking.</li>
+          <li>&bull; Human pose estimation for activity recognition.</li>
+        </ul>
+      </div>
+      <div class="d-flex justify-content-center flex-wrap">
+        <a href="researchs.html" class="btn btn-light btn-custom">Explore Our Researches</a>
+        <a href="publications.html" class="btn btn-light btn-custom">View Publications</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Lab Director Section -->
+  <section class="py-5 bg-light">
+    <div class="container lab-director">
+      <h2 class="fw-bold mb-4">Lab Director</h2>
+      <div class="p-4 rounded border bg-white">
+        <h5 class="fw-bold">Dr. Akilan, T.</h5>
+        <p>Dr. Akilan, T. (Ph.D., P.Eng., SMIEEE) received his Ph.D. in Electrical and Computer Engineering from the
+          University of Windsor, Canada. He is an Associate Professor in the Department of Software Engineering at
+          Lakehead University, Thunder Bay, ON, Canada. His research interests include image/video processing,
+          information fusion, large-data analysis, object/action recognition, and semantic segmentation using artificial
+          intelligence, machine learning, deep learning, and statistical techniques.</p>
+        <p>Currently, he serves as the director of the Engineering Co-op at Lakehead University, a reviewer for several
+          journals, including IEEE Transactions on Multimedia, IEEE Transactions on Pattern Analysis and Machine
+          Intelligence, IEEE Transactions on Intelligent Transportation Systems, and IEEE Transactions on Industrial
+          Informatics, and an associate editor for IEEE Transactions on Circuits and Systems for Video Technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Research Section -->
+  <section class="py-5">
+    <div class="mx-auto" style="max-width: 1100px;">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-4">Featured Researches</h2>
+        <p class="mb-5">Discover our latest breakthroughs and ongoing research projects that are making a difference.
+        </p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-hover h-100" onclick="location.href='researchs.html';">
+              <img src="images/research_projects/DAS-Conv.png" class="card-img-top" alt="Research 1">
+              <div class="card-body">
+                <h5 class="card-title">DAS-Conv: </h5>
+                <p class="card-text">A Deep Learning Module for Improving Semantic Segmentation for Precision
+                  Agriculture</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-hover h-100"
+              onclick="location.href='https://ieeexplore.ieee.org/abstract/document/10292460';">
+              <img src="images/research_projects/fake_news_poster.png" class="card-img-top" alt="Research 2">
+              <div class="card-body">
+                <h5 class="card-title">NLP-driven</h5>
+                <p class="card-text">Content Classification Towards Fake News and Bully Detection</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-hover h-100"
+              onclick="location.href='https://ieeexplore.ieee.org/abstract/document/10667187';">
+              <img src="images/research_projects/a graph attention network for automatic brain tumar segmentation.png"
+                class="card-img-top" alt="Research 3">
+              <div class="card-body">
+                <h5 class="card-title">Improving Pavement</h5>
+                <p class="card-text">Crack Segmentation Using Attention Mechanism and Self-gated
+                  Activation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <a href="researchs.html" class="btn btn-primary" style="--bs-btn-bg: #27497c">View All Research Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 ">
+    <div class="container">
+      <div class="row text-start text-center">
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold">Vision Intelligence and Data Lab</h5>
+          <p>Advancing intelligent systems through cutting-edge research in computer vision, data analytics, machine
+            learning, and AI to address real-world challenges with practical, impactful technological solutions.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4 d-flex align-items-center justify-content-center">
+          <img src="images/lablogo.png" alt="Logo" class="img-fluid">
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="fw-bold">Address</h6>
+          <p>Vision Intelligence and Data Lab<br>
+            Lakehead University<br>
+            Thunder Bay, Ontario, Canada<br>
+            Monday to Friday (8.00am - 5.00pm)<br>
+            <a href="https://www.google.com/maps/search/Lakehead+University,+Thunder+Bay,+Ontario,+Canada/@48.424393,-89.2591852,14z"
+              class="text-info text-decoration-none">Location</a>
+          </p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="text-center pb-3">
+        <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
