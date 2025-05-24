@@ -6,16 +6,28 @@ body {
 /* NAVBAR */
 .navbar-brand {
   font-weight: bold;
-  background: linear-gradient(135deg, #112031, #0d47a1);
+  /* background: linear-gradient(135deg, #112031, #0d47a1); */
+  background: black;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-size: 1.5rem;
 }
 
-.navbar-light .navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active {
+  background-color: #0f3265;
+  color: #fff;
+  /* Active text color: white */
+}
+
+/* Hover Effect for Main Navbar */
+.navbar-nav .nav-link:hover:not(.active) {
   background-color: #e3f2fd;
-  border-radius: 5px;
+  /* Hover background color */
+  color: #000;
+  /* Hover text color: black */
+  text-decoration: none;
+  /* Remove underline on hover */
 }
 
 .navbar-nav .nav-item {
@@ -23,13 +35,22 @@ body {
 }
 
 .navbar-nav .nav-link {
+  color: #000;
+  /* Default text color: black */
+  font-weight: 600;
+  text-decoration: none;
+  /* Remove underline */
   padding: 8px 16px;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  /* Rounded corners for buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* HOME SECTION */
 #home {
   background: linear-gradient(135deg, #112031, #0d47a1);
+  /* background: linear-gradient(135deg, #13273d, #0d3570); */
+
   color: #fff;
   height: 600px;
   display: flex;
@@ -39,7 +60,7 @@ body {
   padding: 0 10vw;
 }
 
-#home .container{
+#home .container {
   margin-top: 60px;
 }
 
@@ -101,6 +122,14 @@ body {
   text-align: justify;
 }
 
+.shadow-hover {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* CARD HOVER EFFECT */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -117,7 +146,7 @@ footer {
   background: linear-gradient(135deg, #13273d, #0d3570);
 }
 
-.footer_element_height{
+.footer_element_height {
   height: 200px;
 }
 
@@ -220,8 +249,164 @@ footer p {
 
 /* PUBLICATIONS BIBBASE */
 .bibbase-publications {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+   text-align: justify; 
+}
+
+.bibbase-publications:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.bibbase-publications:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* people */
+#people-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Floating Nav Styling */
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+  /* Center-align all links */
+}
+
+/* Floating Nav Styling */
+.floating-nav a {
+  display: block;
+  margin: 8px 0;
+  color: #000;
+  /* Default text color: black */
+  font-weight: 600;
+  text-decoration: none;
+  /* Remove underline */
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  /* Rounded corners for buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active Button Styling */
+.floating-nav a.active {
+  background-color: #0f3265;
+  /* Active background color */
+  color: #fff;
+  /* Active text color: white */
+}
+
+/* Hover Effect */
+.floating-nav a:hover:not(.active) {
+  background-color: #e3f2fd;
+  /* Hover background color for non-active links */
+  color: #000;
+  /* Hover text color: black */
+  text-decoration: none;
+  /* Remove underline on hover */
+}
+
+.floating-nav a:focus {
+  text-decoration: none;
+}
+
+
+#faculty .card {
+  width: 755px;
+  margin: 15px;
+  text-align: left;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+#faculty .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+#faculty .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#faculty img {
+  max-width: 100%;
+  height: 195px;
+  border-radius: 8px;
+}
+
+.students-info-section .students-info-section-card {
+  width: 755px;
+  margin: 0px auto;
+  text-align: left;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.students-info-section .students-info-section-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.students-info-first-card {
+  margin-top: 25px;
+}
+
+/* Center card contents vertically */
+.students-info-section-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centers content vertically */
+  height: 100%;
+  /* Ensures the card body takes full height */
+}
+
+.students-info-section .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.students-info-section img {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.students-info-section .card-text {
+  text-align: justify;
+}
+
+.students-info-section .card-body {
+  width: 450px;
 }

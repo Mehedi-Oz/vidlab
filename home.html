@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIDLab</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -14,7 +15,10 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="home.html">VIDLab</a>
+      <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <img src="images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
+        VIDLab
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,9 +39,13 @@
   <section id="home">
     <div class="container text-center">
       <h1>Vision Intelligence and Data Lab</h1>
-      <p class="lead">Vision Intelligence, and Data Laboratory (VIDLab) at Lakehead University is steered by Dr. Akilan,
-        T. The lab focuses on the research and development of efficient intelligent solutions for practical problems
-        using computer vision, image processing, deep learning, machine learning, and large data analytics.</p>
+
+      <p class="lead">
+        Vision Intelligence, and Data Laboratory (VIDLab) at Lakehead University is steered by Dr. Akilan, T. The lab
+        focuses on the research and development of efficient intelligent solutions for practical problems using computer
+        vision, image processing, deep learning, machine learning, and large data analytics.
+      </p>
+
       <div class="theme-box">
         <h5><strong>The following are some of the ongoing research themes:</strong></h5>
         <ul class="list-unstyled">
@@ -47,19 +55,22 @@
           <li>&bull; Human pose estimation for activity recognition.</li>
         </ul>
       </div>
+
+      <!-- Buttons with fade-up animation -->
       <div class="d-flex justify-content-center flex-wrap">
-        <a href="researchs.html" class="btn btn-light btn-custom">Explore Our Researches</a>
-        <a href="publications.html" class="btn btn-light btn-custom">View Publications</a>
+        <a href="researchs.html" class="btn btn-light btn-custom" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="200">Explore Our Researches</a>
+        <a href="publications.html" class="btn btn-light btn-custom" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="400">View Publications</a>
       </div>
     </div>
   </section>
-
 
   <!-- Lab Director Section -->
   <section class="py-5 bg-light">
     <div class="container lab-director div_items_max_width">
       <h2 class="fw-bold mb-4">Lab Director</h2>
-      <div class="p-4 rounded border bg-white">
+      <div class="p-4 rounded border bg-white shadow-hover">
         <h5 class="fw-bold">Dr. Akilan, T.</h5>
         <p>Dr. Akilan, T. (Ph.D., P.Eng., SMIEEE) received his Ph.D. in Electrical and Computer Engineering from the
           University of Windsor, Canada. He is an Associate Professor in the Department of Software Engineering at
@@ -76,7 +87,7 @@
 
   <!-- Featured Research Section -->
   <section class="py-5">
-    <div class="mx-auto div_items_max_width" >
+    <div class="mx-auto div_items_max_width">
       <div class="container text-center">
         <h2 class="fw-bold mb-4">Featured Researches</h2>
         <p class="mb-5">Discover our latest breakthroughs and ongoing research projects that are making a difference.
@@ -156,6 +167,12 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Add AOS Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+
 </body>
 
 </html>
