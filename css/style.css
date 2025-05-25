@@ -46,6 +46,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.body-h1 h1{
+  font-size: 3rem;
+  font-weight: 700;  
+}
+
 /* HOME SECTION */
 #home {
   background: linear-gradient(135deg, #112031, #0d47a1);
@@ -64,10 +69,10 @@ body {
   margin-top: 60px;
 }
 
-#home h1 {
+/* #home h1 {
   font-size: 3rem;
   font-weight: 700;
-}
+} */
 
 #home .lead {
   font-size: 17px;
@@ -259,18 +264,22 @@ footer p {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease; 
-   text-align: justify; 
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-align: justify;
 }
 
 .bibbase-publications:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
-  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  /* Larger shadow on hover */
+  transform: translateY(-5px);
+  /* Slight lift effect */
 }
 
 .bibbase-publications:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
-  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  /* Larger shadow on hover */
+  transform: translateY(-5px);
+  /* Slight lift effect */
 }
 
 /* people */
@@ -380,14 +389,11 @@ footer p {
   margin-top: 25px;
 }
 
-/* Center card contents vertically */
 .students-info-section-card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Centers content vertically */
   height: 100%;
-  /* Ensures the card body takes full height */
 }
 
 .students-info-section .col-md-4 {
@@ -409,4 +415,142 @@ footer p {
 
 .students-info-section .card-body {
   width: 450px;
+}
+
+
+/* RESEARCH SECTIONS */ 
+#research-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+.research-section {
+  padding: 15px;
+}
+
+.research-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.research-card .col-md-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px; 
+  margin: auto;
+}
+
+.research-card .col-md-7 {
+  margin: auto;
+}
+
+.research-image {
+  max-width: 95%; 
+  max-height:95%; 
+  object-fit: contain; 
+}
+
+.research-content {
+  padding: 1.5rem;
+}
+
+.research-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #112031;
+  margin-bottom: 1rem;
+}
+
+.research-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.keyword-tag {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Research MODAL OVERRIDES */
+#researchModal .modal-dialog {
+  max-width: none;
+  width: fit-content;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 6rem);
+}
+
+#researchModal .modal-content {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: fit-content !important;
+  display: block !important;
+  flex-direction: initial !important;
+  position: static !important;
+}
+
+#researchModal .modal-body {
+  padding: 0 !important;
+  text-align: center;
+  display: block;
+}
+
+#modalImage, #modalResearchImage {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: block;
 }

@@ -140,5 +140,16 @@ document.addEventListener('DOMContentLoaded', () => {
       modalImage.src = img.src;
     });
   });
+
+  const researchImages = document.querySelectorAll('.research-image');
+
+  researchImages.forEach((img) => {
+    img.setAttribute('data-bs-toggle', 'modal');
+    img.setAttribute('data-bs-target', '#researchModal');
+    img.addEventListener('click', () => {
+      const modalImage = document.getElementById('modalResearchImage');
+      modalImage.src = img.src;
+    });
+  });
 });
 
