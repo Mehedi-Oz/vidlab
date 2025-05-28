@@ -58,7 +58,6 @@
   <!-- Completed Projects Section -->
   <div class="research-section">
     <div class="container py-5">
-      <h2 class="section-title">Completed Researches</h2>
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
@@ -229,7 +228,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative" style="margin-bottom: 0 !important;">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="images/research_projects/bug_report.png" alt="Agricultural Segmentation"
@@ -261,47 +260,10 @@
         </div>
       </div>
 
-    </div>
-  </div>
+      <!-- If you are adding new rsearches, make sure to remove this (style="margin-bottom: 0 !important;")
+            from Research Card "Fast Detection of Duplicate Bug Reports". Yes This Code Sucks!
+      -->
 
-  <!-- Active Research Section -->
-  <div class="research-section" style="background-color: #f8f9fa;">
-    <div class="container">
-      <h2 class="section-title">Active Researches</h2>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="research-card position-relative">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <img src="images/research_projects/bug_report.png" alt="Agricultural Segmentation"
-                  class="research-image">
-              </div>
-              <div class="col-md-7">
-                <div class="research-content">
-                  <h3 class="research-title text-center">Fast Detection of Duplicate Bug Reports</h3>
-                  <p class="research-description">
-                    During the development and maintenance of a software, a bug is detected by the bug tracking system
-                    and a bug report is generated. Identical problem: There can be already existing bug reports, which
-                    were reported to the developer earlier, but the same problem can be reported over and over. It
-                    causes waste of development time solving a solved bug. So, it is extremely important to detect the
-                    duplicate bug reports. The proposed solution predicts the overwhelming of incoming bug reports as
-                    duplicates entries or not using LDA-based clustering and ML-based classification in a time efficient
-                    manner.
-                    <a href="https://ieeexplore.ieee.org/abstract/document/9283289"
-                      class="text-primary text-decoration-none"> [View Paper]</a>
-                  </p>
-                  <div class="keywords">
-                    <span class="keyword-tag">Bug Tracking</span>
-                    <span class="keyword-tag">LDA-based Clustering</span>
-                    <span class="keyword-tag">ML-based Classification</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 

@@ -1,12 +1,71 @@
+/* Global and Base Styles */
 body {
   font-family: 'Merriweather', serif;
   background-color: #f8f9fa;
 }
 
-/* NAVBAR */
+.body-h1 h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Utility Classes and Common Divs */
+.div_items_max_width {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.theme-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  width: 980px;
+  max-width: 100%;
+}
+
+.btn-custom {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.d-flex.justify-content-center.flex-wrap {
+  gap: 25px;
+}
+
+.shadow-hover {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Navbar */
 .navbar-brand {
   font-weight: bold;
-  /* background: linear-gradient(135deg, #112031, #0d47a1); */
   background: black;
   background-clip: text;
   -webkit-background-clip: text;
@@ -14,65 +73,63 @@ body {
   font-size: 1.5rem;
 }
 
-.navbar-nav .nav-link.active {
-  background-color: #0f3265;
-  color: #fff;
-  /* Active text color: white */
-}
-
-/* Hover Effect for Main Navbar */
-.navbar-nav .nav-link:hover:not(.active) {
-  background-color: #e3f2fd;
-  /* Hover background color */
+.navbar-nav .nav-link {
   color: #000;
-  /* Hover text color: black */
+  font-weight: 600;
   text-decoration: none;
-  /* Remove underline on hover */
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar-nav .nav-item {
   margin: 0 10px;
 }
 
-.navbar-nav .nav-link {
-  color: #000;
-  /* Default text color: black */
-  font-weight: 600;
-  text-decoration: none;
-  /* Remove underline */
-  padding: 8px 16px;
-  border-radius: 5px;
-  /* Rounded corners for buttons */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.body-h1 h1{
-  font-size: 3rem;
-  font-weight: 700;  
-}
-
-/* HOME SECTION */
-#home {
-  background: linear-gradient(135deg, #112031, #0d47a1);
-  /* background: linear-gradient(135deg, #13273d, #0d3570); */
-
+.navbar-nav .nav-link.active {
+  background-color: #0f3265;
   color: #fff;
-  height: 600px;
+}
+
+.navbar-nav .nav-link:hover:not(.active) {
+  background-color: #e3f2fd;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Header/Main Sections (Common to multiple pages) */
+.all-header-main {
+  height: 300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/bg-images/bg-image.jpg') center center/cover no-repeat;
+  color: #fff;
+}
+
+.all-header-main h2 {
+  margin-top: 90px;
+}
+
+/* Home Page Specific Styles */
+#home {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/bg-images/bg-image.jpg') center center/cover no-repeat;
+  color: #fff;
+  width: 100%;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 0 10vw;
-}
-
-#home .container {
+  margin: auto;
   margin-top: 60px;
 }
 
-/* #home h1 {
-  font-size: 3rem;
-  font-weight: 700;
-} */
+#home .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
 
 #home .lead {
   font-size: 17px;
@@ -81,40 +138,7 @@ body {
   width: 980px;
 }
 
-/* ABOUT DIV */
-.div_items_max_width {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* THEME BOX */
-.theme-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #fff;
-  width: 980px;
-  max-width: 100%;
-}
-
-/* BUTTONS */
-.btn-custom {
-  margin-top: 20px;
-  margin-right: 10px;
-}
-
-/* FLEX UTILITIES */
-.d-flex.justify-content-center.flex-wrap {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  gap: 25px;
-}
-
-/* LAB DIRECTOR SECTION */
+/* Lab Director Section (Likely on Home or About page) */
 .lab-director h2 {
   color: #112031;
   text-align: center;
@@ -127,168 +151,12 @@ body {
   text-align: justify;
 }
 
-.shadow-hover {
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.shadow-hover:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* CARD HOVER EFFECT */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* FOOTER */
-footer {
-  background: linear-gradient(135deg, #13273d, #0d3570);
-}
-
-.footer_element_height {
-  height: 200px;
-}
-
-footer img {
-  width: 160px;
-  height: auto;
-}
-
-footer .text-start,
-footer .text-center {
-  text-align: center;
-}
-
-footer h5,
-footer h6 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-footer p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.footer-logo {
-  margin-top: -26px;
-}
-
-/* HEADER/MAIN SECTIONS */
-.all-header-main {
-  height: 300px;
-  background: linear-gradient(135deg, #112031, #0d47a1);
-  color: #fff;
-}
-
-.all-header-main h2 {
-  margin-top: 90px;
-}
-
-/* GALLERY */
-.gallery-img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.gallery-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 2%;
-}
-
-.gallery-img-container {
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-
-/* GALLERY MODAL OVERRIDES */
-#galleryModal .modal-dialog {
-  max-width: none;
-  width: fit-content;
-  margin: 3rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 6rem);
-}
-
-#galleryModal .modal-content {
-  border: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  width: fit-content !important;
-  display: block !important;
-  flex-direction: initial !important;
-  position: static !important;
-}
-
-#galleryModal .modal-body {
-  padding: 0 !important;
-  text-align: center;
-  display: block;
-}
-
-#modalImage {
-  width: auto;
-  height: auto;
-  max-width: 90vw;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  display: block;
-}
-
-/* PUBLICATIONS BIBBASE */
-.bibbase-publications {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  text-align: justify;
-}
-
-.bibbase-publications:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  /* Larger shadow on hover */
-  transform: translateY(-5px);
-  /* Slight lift effect */
-}
-
-.bibbase-publications:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  /* Larger shadow on hover */
-  transform: translateY(-5px);
-  /* Slight lift effect */
-}
-
-/* people */
+/* People Page Specific Styles */
 #people-page h2 {
   font-size: 2rem;
   font-weight: 700;
 }
 
-/* Floating Nav Styling */
 .floating-nav {
   position: fixed;
   top: 50%;
@@ -301,47 +169,34 @@ footer p {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   text-align: center;
-  /* Center-align all links */
 }
 
-/* Floating Nav Styling */
 .floating-nav a {
   display: block;
   margin: 8px 0;
   color: #000;
-  /* Default text color: black */
   font-weight: 600;
   text-decoration: none;
-  /* Remove underline */
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 5px;
-  /* Rounded corners for buttons */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Active Button Styling */
 .floating-nav a.active {
   background-color: #0f3265;
-  /* Active background color */
   color: #fff;
-  /* Active text color: white */
 }
 
-/* Hover Effect */
 .floating-nav a:hover:not(.active) {
   background-color: #e3f2fd;
-  /* Hover background color for non-active links */
   color: #000;
-  /* Hover text color: black */
   text-decoration: none;
-  /* Remove underline on hover */
 }
 
 .floating-nav a:focus {
   text-decoration: none;
 }
-
 
 #faculty .card {
   width: 755px;
@@ -405,8 +260,8 @@ footer p {
 .students-info-section img {
   width: 160px;
   height: 160px;
-  border-radius: 8px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .students-info-section .card-text {
@@ -417,8 +272,7 @@ footer p {
   width: 450px;
 }
 
-
-/* RESEARCH SECTIONS */ 
+/* Research Page Specific Styles */
 #research-page h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -426,10 +280,9 @@ footer p {
   margin-bottom: 2rem;
 }
 
-
-.research-section {
+/* .research-section {
   padding: 15px;
-}
+} */
 
 .research-card {
   background: #fff;
@@ -450,7 +303,7 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 450px; 
+  height: 450px;
   margin: auto;
 }
 
@@ -459,9 +312,9 @@ footer p {
 }
 
 .research-image {
-  max-width: 95%; 
-  max-height:95%; 
-  object-fit: contain; 
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
 }
 
 .research-content {
@@ -503,21 +356,14 @@ footer p {
 
 .keyword-tag {
   background-color: #e3f2fd;
-  color: #0d47a1;
+  color: #2e2e2e;
   padding: 5px 12px;
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-.section-subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-}
-
-/* Research MODAL OVERRIDES */
+/* Research Modal Overrides */
 #researchModal .modal-dialog {
   max-width: none;
   width: fit-content;
@@ -544,7 +390,8 @@ footer p {
   display: block;
 }
 
-#modalImage, #modalResearchImage {
+#modalImage,
+#modalResearchImage {
   width: auto;
   height: auto;
   max-width: 90vw;
@@ -554,3 +401,171 @@ footer p {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   display: block;
 }
+
+/* Gallery Section */
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
+}
+
+/* .gallery-img-container {
+  margin-top: 30px;
+} */
+
+/* Gallery Modal Overrides */
+#galleryModal .modal-dialog {
+  max-width: none;
+  width: fit-content;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 6rem);
+}
+
+#galleryModal .modal-content {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: fit-content !important;
+  display: block !important;
+  flex-direction: initial !important;
+  position: static !important;
+}
+
+#galleryModal .modal-body {
+  padding: 0 !important;
+  text-align: center;
+  display: block;
+}
+
+/* Publications Section */
+#publications h2 {
+  color: #112031;
+  font-weight: 700;
+}
+
+#publications select {
+  width: 170px;
+}
+
+#publications .form-select,
+#publications .btn {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 5px;
+  min-width: 120px;
+}
+
+#publications .btn-outline-secondary,
+#publications .btn-outline-primary,
+#publications .btn-outline-info {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#publications .btn-outline-secondary:hover {
+  background-color: #6c757d;
+}
+
+#publications .btn-outline-primary:hover {
+  background-color: #0d6efd;
+}
+
+#publications .btn-outline-info:hover {
+  background-color: #0dcaf0;
+}
+
+#publications .publication-entry {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-left: 4px solid #0d47a1;
+  border-radius: 6px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#publications .publication-entry:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+#publications .publication-entry p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+#publications .publication-entry a {
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: 500;
+  color: #0d47a1;
+}
+
+#publications .publication-entry a:hover {
+  text-decoration: underline;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filter-options .form-select,
+.filter-options .btn {
+  flex: 0 1 auto;
+  min-width: 120px;
+}
+
+.publication-year-heading {
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #13273d, #0d3570);
+}
+
+.footer_element_height {
+  height: 200px;
+}
+
+footer img {
+  width: 160px;
+  height: auto;
+}
+
+footer .text-start,
+footer .text-center {
+  text-align: center;
+}
+
+footer h5,
+footer h6 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer-logo {
+  margin-top: -26px;
+}
+
