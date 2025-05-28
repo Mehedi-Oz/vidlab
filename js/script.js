@@ -85,7 +85,6 @@
 //     if (!publicationsList) return;
 
 //     const allPublicationEntries = Array.from(document.querySelectorAll('#publicationsList .publication-entry'));
-//     const allPublicationYearGroups = Array.from(document.querySelectorAll('#publicationsList .publication-year-group'));
 
 //     const keywordMap = [
 //       { value: 'Classification', display: 'Classification' },
@@ -108,43 +107,67 @@
 //     }
 
 //     function applyFilters() {
-//       const selectedYear = filterYear?.value !== 'Year' ? filterYear.value : '';
-//       const selectedType = filterType?.value !== 'Type' ? filterType.value.toLowerCase() : '';
-//       const selectedKeyword = filterKeyword?.value !== 'Keyword' ? filterKeyword.value.toLowerCase() : '';
-
-//       const nonOtherTypes = ['journal', 'conference', 'thesis'];
+//       const selectedYear = filterYear?.value && filterYear.value !== 'Year' ? filterYear.value : '';
+//       const selectedType = filterType?.value && filterType.value !== 'Type' ? filterType.value.toLowerCase() : '';
+//       const selectedKeyword = filterKeyword?.value && filterKeyword.value !== 'Keyword' ? filterKeyword.value : '';
 
 //       allPublicationEntries.forEach(entry => {
-//         const entryYear = entry.dataset.year || '';
-//         const entryType = (entry.dataset.type || '').toLowerCase();
-//         const entryKeywords = (entry.dataset.keywords || '')
-//           .split(',')
-//           .map(kw => kw.trim().toLowerCase());
+//         const entryYear = entry.getAttribute('data-year') || '';
+//         const entryType = (entry.getAttribute('data-type') || '').toLowerCase();
+//         const entryKeywordsStr = entry.getAttribute('data-keywords') || '';
+//         const entryKeywords = entryKeywordsStr.split(' ').map(kw => kw.trim()).filter(kw => kw);
 
-//         const yearMatch = !selectedYear || entryYear === selectedYear;
-//         let typeMatch = !selectedType || (selectedType === 'other'
-//           ? !nonOtherTypes.includes(entryType)
-//           : entryType.includes(selectedType));
-//         let keywordMatch = !selectedKeyword || (selectedKeyword === 'other'
-//           ? !entryKeywords.some(kw => keywordMap.map(k => k.value.toLowerCase()).includes(kw))
-//           : entryKeywords.includes(selectedKeyword));
+//         let show = true;
 
-//         entry.style.display = (yearMatch && typeMatch && keywordMatch) ? 'block' : 'none';
-//       });
+//         // Year filter
+//         if (selectedYear && entryYear !== selectedYear) {
+//           show = false;
+//         }
 
-//       allPublicationYearGroups.forEach(group => {
-//         const hasVisible = Array.from(group.querySelectorAll('.publication-entry')).some(pub => pub.style.display !== 'none');
-//         group.style.display = hasVisible ? 'block' : 'none';
+//         // Type filter
+//         if (selectedType && show) {
+//           if (selectedType === 'other') {
+//             if (['journal', 'conference', 'thesis'].includes(entryType)) {
+//               show = false;
+//             }
+//           } else {
+//             if (entryType !== selectedType) {
+//               show = false;
+//             }
+//           }
+//         }
+
+//         // Keyword filter
+//         if (selectedKeyword && show) {
+//           if (selectedKeyword === 'Other') {
+//             // For "Other", show if it doesn't contain any of the specific keywords
+//             const specificKeywords = ['Classification', 'CNN', 'Detection', 'Deep-Learning', 'Transfer-Learning'];
+//             if (entryKeywords.some(kw => specificKeywords.includes(kw))) {
+//               show = false;
+//             }
+//           } else {
+//             // For specific keywords, check if entry contains the keyword
+//             if (!entryKeywords.includes(selectedKeyword)) {
+//               show = false;
+//             }
+//           }
+//         }
+
+//         entry.style.display = show ? 'block' : 'none';
 //       });
 //     }
 
+//     // Initialize dropdown
 //     populateKeywordsDropdown();
 
+//     // Add event listeners
 //     filterYear?.addEventListener('change', applyFilters);
 //     filterType?.addEventListener('change', applyFilters);
 //     filterKeyword?.addEventListener('change', applyFilters);
 
+//     // Initial application
 //     applyFilters();
+
 //   } catch (err) {
 //     console.error('Filter initialization error:', err);
 //   }
@@ -167,18 +190,11 @@
 // }
 
 // // Initialize all on DOM ready
-
 // document.addEventListener('DOMContentLoaded', () => {
 //   initializeFloatingNav();
 //   initializeFilters();
 //   initializeGalleryModals();
 // });
-
-
-
-
-
-
 
 
 // Initializes floating nav highlighting on scroll
@@ -372,9 +388,81 @@ function initializeGalleryModals() {
   modalImgHandler('.research-image', 'researchModal');
 }
 
+// Motion Animation Integration
+function initializePageTransitions() {
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link, #floating-nav .nav-link');
+  const contentContainer = document.getElementById('content-container') || document.body;
+
+  if (contentContainer) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', async function (event) {
+        event.preventDefault();
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          // Handle in-page navigation
+          const targetSection = document.getElementById(href.substring(1));
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        } else {
+          // Handle page navigation with animation
+          await loadPage(href);
+        }
+      });
+    });
+
+    async function loadPage(url) {
+      contentContainer.classList.add('fade-out');
+      await new Promise(resolve => setTimeout(resolve, 300)); // Match animation duration
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Page load failed');
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newContent = doc.querySelector('#content-container') || doc.body;
+
+        // Replace content
+        contentContainer.innerHTML = newContent.innerHTML;
+
+        // Reinitialize scripts and event listeners
+        initializePage();
+        contentContainer.classList.remove('fade-out');
+        contentContainer.classList.add('fade-in');
+        await new Promise(resolve => setTimeout(resolve, 300)); // Match animation duration
+        contentContainer.classList.remove('fade-in');
+      } catch (error) {
+        console.error('Error loading page:', error);
+        contentContainer.classList.remove('fade-out');
+      }
+    }
+
+    function initializePage() {
+      // Reinitialize all functionality
+      initializeFloatingNav();
+      initializeFilters();
+      initializeGalleryModals();
+      initializePageTransitions();
+    }
+
+    // Set initial active link
+    document.querySelectorAll('.navbar-nav .nav-link, #floating-nav .nav-link').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname || link.getAttribute('href') === `#${window.location.hash.substring(1)}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+}
+
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   initializeFloatingNav();
   initializeFilters();
   initializeGalleryModals();
+  initializePageTransitions();
 });
