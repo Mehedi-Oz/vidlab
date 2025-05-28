@@ -280,10 +280,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* .research-section {
-  padding: 15px;
-} */
-
 .research-card {
   background: #fff;
   border-radius: 10px;
@@ -402,53 +398,6 @@ body {
   display: block;
 }
 
-/* Gallery Section */
-.gallery-img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.gallery-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 2%;
-}
-
-/* .gallery-img-container {
-  margin-top: 30px;
-} */
-
-/* Gallery Modal Overrides */
-#galleryModal .modal-dialog {
-  max-width: none;
-  width: fit-content;
-  margin: 3rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 6rem);
-}
-
-#galleryModal .modal-content {
-  border: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  width: fit-content !important;
-  display: block !important;
-  flex-direction: initial !important;
-  position: static !important;
-}
-
-#galleryModal .modal-body {
-  padding: 0 !important;
-  text-align: center;
-  display: block;
-}
-
 /* Publications Section */
 #publications h2 {
   color: #112031;
@@ -534,6 +483,50 @@ body {
   text-align: center;
 }
 
+
+/* Gallery Section */
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
+}
+
+/* Gallery Modal Overrides */
+#galleryModal .modal-dialog {
+  max-width: none;
+  width: fit-content;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 6rem);
+}
+
+#galleryModal .modal-content {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: fit-content !important;
+  display: block !important;
+  flex-direction: initial !important;
+  position: static !important;
+}
+
+#galleryModal .modal-body {
+  padding: 0 !important;
+  text-align: center;
+  display: block;
+}
+
 /* Footer */
 footer {
   background: linear-gradient(135deg, #13273d, #0d3570);
@@ -568,4 +561,3 @@ footer p {
 .footer-logo {
   margin-top: -26px;
 }
-

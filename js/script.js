@@ -174,6 +174,13 @@
 //   initializeGalleryModals();
 // });
 
+
+
+
+
+
+
+
 // Initializes floating nav highlighting on scroll
 function initializeFloatingNav() {
   const navLinks = document.querySelectorAll('#floating-nav .nav-link');
