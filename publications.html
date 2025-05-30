@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="home.html">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
         VIDLab
       </a>
@@ -24,7 +24,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
           <li class="nav-item"><a class="nav-link" href="researchs.html">Research</a></li>
           <li class="nav-item"><a class="nav-link active" href="publications.html">Publications</a></li>
@@ -42,26 +42,34 @@
   </section>
 
   <section id="publications" class="container div_items_max_width py-5">
+    <div class="filter-options col-12 col-md-10 mx-auto rounded">
+      <div class="custom-dropdown" data-filter="year">
+        <div class="custom-dropdown-toggle" tabindex="0">Year</div>
+        <div class="custom-dropdown-menu">
+          <div class="custom-dropdown-item" data-value="">Year</div>
+        </div>
+      </div>
 
-    <div class="filter-options">
-      <select class="form-select" id="filterYear">
-        <option selected>Year</option>
-      </select>
+      <div class="custom-dropdown" data-filter="type">
+        <div class="custom-dropdown-toggle" tabindex="0">Type</div>
+        <div class="custom-dropdown-menu">
+          <div class="custom-dropdown-item" data-value="">Type</div>
+        </div>
+      </div>
 
-      <select class="form-select" id="filterType">
-        <option selected>Type</option>
-      </select>
+      <div class="custom-dropdown" data-filter="keyword">
+        <div class="custom-dropdown-toggle" tabindex="0">Keyword</div>
+        <div class="custom-dropdown-menu">
+          <div class="custom-dropdown-item" data-value="">Keyword</div>
+        </div>
+      </div>
 
-      <select class="form-select" id="filterKeyword">
-        <option selected>Keyword</option>
-      </select>
-
-      <a href="assets\bib\publications.bib" class="btn btn-outline-secondary">Download BibTeX</a>
+      <button id="resetFilters" class="btn btn-outline-secondary">Reset Filters</button>
       <a href="publications-bibbase.html" class="btn btn-outline-secondary">Old Visual</a>
     </div>
 
 
-    <div class="bibbase-publications d-flex flex-column align-items-center" id="publicationsList">
+    <div class="d-flex flex-column align-items-center" id="publicationsList">
       <div class="col-md-10">
         <div class="publication-entry border rounded p-3 mb-3" data-year="2025" data-type="Preprints"
           data-keywords="Other">

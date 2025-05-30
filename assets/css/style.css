@@ -510,6 +510,34 @@ body {
   text-align: justify;
 }
 
+/* PUBLICATIONS BIBBASE */
+.bibbase-publications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+   text-align: justify; 
+}
+
+.bibbase-publications:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.bibbase-publications:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+
+
 .filter-options {
   display: flex;
   flex-wrap: wrap;
@@ -529,6 +557,7 @@ body {
 }
 
 
+
 /* Gallery Section */
 
 
@@ -536,7 +565,7 @@ body {
 .gallery-filter-wrapper {
   display: flex;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 0.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 6px 10px;
   gap: 10px;
@@ -545,20 +574,23 @@ body {
 .gallery-filter-btn {
   border: none;
   background: transparent;
-  color: #334155; /* Slate 700 */
+  color: #334155;
+  /* Slate 700 */
   font-weight: 600;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 0.25rem;
   transition: all 0.3s ease;
 }
 
 .gallery-filter-btn.active {
-  background-color: #164e63; /* Cyan 800 */
+  background-color: #164e63;
+  /* Cyan 800 */
   color: white;
 }
 
 .gallery-filter-btn:hover:not(.active) {
-  background-color: #f1f5f9; /* Slate 50 */
+  background-color: #f1f5f9;
+  /* Slate 50 */
   color: #334155;
   cursor: pointer;
 }
@@ -749,28 +781,24 @@ footer p {
 /* Primary CTA Button - Explore Our Researches */
 .btn-light.btn-custom:first-of-type {
   background-color: #10b981 !important;
-  /* Emerald 500 */
   border-color: #10b981 !important;
   color: white !important;
 }
 
 .btn-light.btn-custom:first-of-type:hover {
   background-color: #059669 !important;
-  /* Darker emerald */
   border-color: #059669 !important;
 }
 
 /* Secondary CTA Button - View Publications */
 .btn-light.btn-custom:last-of-type {
   background-color: #164e63 !important;
-  /* Cyan 800 */
   border-color: #164e63 !important;
   color: white !important;
 }
 
 .btn-light.btn-custom:last-of-type:hover {
   background-color: #0e7490 !important;
-  /* Cyan 700 */
   border-color: #0e7490 !important;
 }
 
@@ -891,6 +919,7 @@ footer small {
 }
 
 /* Publications Page Updates */
+
 #publications h2 {
   color: #0f172a;
   /* Slate 900 */
@@ -1029,3 +1058,84 @@ a:hover {
     animation: backgroundZoom 25s ease-in-out infinite alternate;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Custom Dropdown Styles */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 170px;
+}
+
+.custom-dropdown-toggle {
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  font-size: 13px;
+  color: #212529;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  cursor: pointer;
+
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  max-height: 200px;
+  /* Limit to ~5 items */
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+.custom-dropdown-menu.show {
+  display: block;
+}
+
+.custom-dropdown-item {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: #212529;
+  font-size: 13px;
+}
+
+.custom-dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+
+
+
+
+
+
+
+
+
+
