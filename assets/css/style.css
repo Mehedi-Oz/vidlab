@@ -979,6 +979,59 @@ footer hr{
   }
 }
 
+/* Target all iPhones from 13 mini to 15 Pro Max (portrait) */
+@media (max-width: 445px) {
+
+  #home {
+    height: 530px;
+    padding: 0 10px;
+    background-size: cover;
+    padding: 0 5vw; 
+    background-attachment: scroll;
+  }
+
+  #home .container {
+    width: 405px;
+  }
+
+  #home h1 {
+    font-size: 32px;
+  }
+
+  #home .lead {
+    width: 382px;
+  }
+
+  #home .theme-box {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .list-unstyled{
+    margin-bottom: 0px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap {
+    gap: 8px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap a{
+    padding: 8px 8px !important;
+    margin-left: auto;
+  margin-right: auto;
+  }
+
+    #home section .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+
+  footer h6{
+    font-size: 20px;
+  }
+}
+
 
 
 /* Most common Android phones */
