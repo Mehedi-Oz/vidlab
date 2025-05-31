@@ -14,7 +14,7 @@
 
 <body class="zoom-bg">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
@@ -194,8 +194,14 @@
       </div>
 
       <hr class="border-secondary">
-      <div class="text-center pb-3">
+      <!-- Desktop/tablet footer: visible from md and up -->
+      <div class="text-center pb-3 d-none d-md-block">
         <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
+      </div>
+
+      <!-- Mobile-only footer: visible below md -->
+      <div class="text-center pb-3 d-block d-md-none">
+        <small>© 2025 VIDLab. All rights reserved.</small>
       </div>
     </div>
   </footer>
