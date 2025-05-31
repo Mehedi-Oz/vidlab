@@ -60,10 +60,11 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative border">
             <div class="row g-0">
               <div class="col-md-5">
-                <img src="assets/images/research_projects/DAS-Conv.png" alt="Agricultural Segmentation" class="research-image">
+                <img src="assets/images/research_projects/DAS-Conv.png" alt="Agricultural Segmentation"
+                  class="research-image">
               </div>
               <div class="col-md-7">
                 <div class="research-content">
@@ -94,7 +95,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative border">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="assets/images/research_projects/fake_news_poster.png" alt="Agricultural Segmentation"
@@ -127,7 +128,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative border">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="assets/images/research_projects/fake_news_poster.png" alt="Agricultural Segmentation"
@@ -162,7 +163,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative border">
             <div class="row g-0">
               <div class="col-md-5">
                 <img
@@ -195,7 +196,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative">
+          <div class="research-card position-relative border">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="assets/images/research_projects/video_surveillance_poster.png" alt="Agricultural Segmentation"
@@ -227,7 +228,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="research-card position-relative" style="margin-bottom: 0 !important;">
+          <div class="research-card position-relative border" style="margin-bottom: 0 !important;">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="assets/images/research_projects/bug_report.png" alt="Agricultural Segmentation"
@@ -267,18 +268,20 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-light pt-5 ">
+  <footer class="bg-dark text-light pt-3 ">
     <div class="container">
-      <div class="row text-start text-center footer_element_height">
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Vision Intelligence and Data Lab</h5>
+
+      <!-- Desktop/tablet footer: visible from md and up -->
+      <div class="row text-center footer_element_height d-none d-md-flex">
+        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+          <h6 class="fw-bold">Vision Intelligence and Data Lab</h6>
           <p>Advancing intelligent systems through cutting-edge research in computer vision, data analytics, machine
             learning, and AI to address real-world challenges with practical, impactful technological solutions.</p>
         </div>
-        <div class="col-md-4 text-center mb-4 d-flex align-items-center justify-content-center">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
           <img src="assets/images/lablogo.png" alt="Logo" class="img-fluid footer-logo">
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center  text-center">
           <h6 class="fw-bold">Address</h6>
           <p>Vision Intelligence and Data Lab<br>
             Lakehead University<br>
@@ -289,6 +292,21 @@
           </p>
         </div>
       </div>
+
+      <!-- Mobile-only footer: visible below md -->
+      <div class="row d-flex d-md-none text-center justify-content-center">
+        <div class="col-12 d-flex flex-column align-items-center text-center">
+          <h6 class="fw-bold">Vision Intelligence and Data Lab</h6>
+          <p>
+            Lakehead University<br>
+            Thunder Bay, Ontario, Canada<br>
+            Monday to Friday (8.00am - 5.00pm)<br>
+            <a href="https://www.google.com/maps/search/Lakehead+University,+Thunder+Bay,+Ontario,+Canada/@48.424393,-89.2591852,14z"
+              class="text-info text-decoration-none">Location</a>
+          </p>
+        </div>
+      </div>
+
       <hr class="border-secondary">
       <div class="text-center pb-3">
         <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
