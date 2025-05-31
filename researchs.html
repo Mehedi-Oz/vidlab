@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="all-class-padding">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
@@ -56,7 +56,7 @@
 
   <!-- Completed Projects Section -->
   <div class="research-section">
-    <div class="container py-5">
+    <div class="container py-4">
 
       <div class="row justify-content-center">
         <div class="col-lg-10">
@@ -81,6 +81,9 @@
                     <a href="https://www.researchtv.ca/gradflix-lakehead-university-graduate-student-research-1/videos/cling-das-conv-a-deep-learning-module-for-improving-semantic-segmentation-for-precision-agriculture"
                       class="text-primary text-decoration-none">[Research Overview]</a>
                   </p>
+
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Precision Agriculture</span>
                     <span class="keyword-tag">Semantic Segmentation</span>
@@ -114,6 +117,10 @@
                     <a href="https://ieeexplore.ieee.org/abstract/document/10292460"
                       class="text-primary text-decoration-none">[View Paper]</a>
                   </p>
+
+                  
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Supervised Learning</span>
                     <span class="keyword-tag">Hybrid Model</span>
@@ -149,6 +156,9 @@
                       href="https://ieeexplore.ieee.org/abstract/document/10667187"
                       class="text-primary text-decoration-none"> [View Paper]</a>
                   </p>
+
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Autonomous Driving</span>
                     <span class="keyword-tag">Segmentation Model</span>
@@ -182,6 +192,9 @@
                       href="https://ieeexplore.ieee.org/abstract/document/10270859"
                       class="text-primary text-decoration-none"> [View Paper]</a>
                   </p>
+
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Medical Imaging</span>
                     <span class="keyword-tag">GAT Model</span>
@@ -214,6 +227,9 @@
                     training and evaluates performance through detection accuracy, demonstrating a significant
                     improvement in identifying unusual events.
                   </p>
+
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Video Surveillance</span>
                     <span class="keyword-tag">LSTM Networks</span>
@@ -248,6 +264,9 @@
                     <a href="https://ieeexplore.ieee.org/abstract/document/9283289"
                       class="text-primary text-decoration-none"> [View Paper]</a>
                   </p>
+
+                  <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
+
                   <div class="keywords">
                     <span class="keyword-tag">Bug Tracking</span>
                     <span class="keyword-tag">LDA-based Clustering</span>
@@ -308,8 +327,14 @@
       </div>
 
       <hr class="border-secondary">
-      <div class="text-center pb-3">
+      <!-- Desktop/tablet footer: visible from md and up -->
+      <div class="text-center pb-3 d-none d-md-block">
         <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
+      </div>
+
+      <!-- Mobile-only footer: visible below md -->
+      <div class="text-center pb-3 d-block d-md-none">
+        <small>© 2025 VIDLab. All rights reserved.</small>
       </div>
     </div>
   </footer>

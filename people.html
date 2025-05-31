@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="all-class-padding">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
@@ -44,14 +44,25 @@
   </section>
 
   <!-- Floating Nav -->
-  <div id="floating-nav" class="floating-nav text-center">
+  <!-- Desktop Filter Bar (only shows on Desktop) -->
+  <div id="floating-nav" class="floating-nav text-center d-none d-md-flex">
     <a href="#faculty" class="nav-link active">Faculty</a>
     <a href="#alumni" class="nav-link">Alumni</a>
     <a href="#graduate" class="nav-link">Graduate Students</a>
     <a href="#undergraduate" class="nav-link">Undergraduate Students</a>
   </div>
+
+  <!-- Mobile Filter Bar (only shows on mobile) -->
+  <div class="mobile-filter-bar d-block d-md-none">
+    <div class="mobile-filter-tabs">
+      <button class="mobile-filter-btn active" data-filter="faculty">Faculty</button>
+      <button class="mobile-filter-btn" data-filter="alumni">Alumni</button>
+      <button class="mobile-filter-btn" data-filter="graduate">Graduate Students</button>
+      <button class="mobile-filter-btn" data-filter="undergraduate">Undergraduate Students</button>
+    </div>
+  </div>
   <!-- Faculty -->
-  <section id="faculty" class="container py-5">
+  <section id="faculty" class="container py-4">
     <h2 class="text-center mb-4">Faculty</h2>
     <div class="row justify-content-center">
       <div class="card card-hover shadow-hover">
@@ -79,7 +90,7 @@
   </section>
 
   <!-- Alumni -->
-  <section id="alumni" class="students-info-section container pb-5">
+  <section id="alumni" class="students-info-section container pb-4">
     <h2 class="text-center mb-4">Alumni</h2>
 
     <!-- Alumni Card -->
@@ -197,9 +208,8 @@
 
   </section>
 
-
   <!-- Graduate Students -->
-  <section id="graduate" class="students-info-section container pb-5">
+  <section id="graduate" class="students-info-section container pb-4">
     <h2 class="text-center mb-4">Graduate Students</h2>
     <div class="card card-hover shadow-hover students-info-section-card">
 
@@ -281,7 +291,7 @@
   </section>
 
   <!-- Undergraduate Students -->
-  <section id="undergraduate" class="students-info-section container pb-5">
+  <section id="undergraduate" class="students-info-section container pb-4">
     <h2 class="text-center mb-4">Undergraduate Students</h2>
     <div class="card card-hover shadow-hover students-info-section-card">
       <div class="row g-0 mb-4 pb-4 border-bottom students-info-first-card">
@@ -458,9 +468,6 @@
   </section>
 
 
-
-
-
   <!-- Footer -->
   <footer class="bg-dark text-light pt-3 ">
     <div class="container">
@@ -502,11 +509,19 @@
       </div>
 
       <hr class="border-secondary">
-      <div class="text-center pb-3">
+      <!-- Desktop/tablet footer: visible from md and up -->
+      <div class="text-center pb-3 d-none d-md-block">
         <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
+      </div>
+
+      <!-- Mobile-only footer: visible below md -->
+      <div class="text-center pb-3 d-block d-md-none">
+        <small>© 2025 VIDLab. All rights reserved.</small>
       </div>
     </div>
   </footer>
+
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/script.js"></script>

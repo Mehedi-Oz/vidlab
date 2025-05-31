@@ -178,7 +178,7 @@ body {
 }
 
 .navbar-nav .nav-item {
-  margin: 0 10px;
+  margin: 2px 10px;
 }
 
 .navbar-nav .nav-link.active {
@@ -341,15 +341,19 @@ body {
 ████████████████████████████████████████████████████████████████████████████████
 */
 
+.all-class-padding {
+  padding-top: 56px;
+}
+
 /* Header/Main Sections (Common to multiple pages) */
 .all-header-main {
   background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('../images/bg-images/bg-image.jpg') center center/cover no-repeat;
   height: 300px;
   color: #fff;
-}
-
-.all-header-main h2 {
-  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /*
@@ -408,10 +412,8 @@ body {
 
 #faculty .card {
   width: 755px;
-  margin: 15px;
   text-align: left;
   padding: 20px;
-  margin-top: 15px;
   margin-bottom: 15px;
   background-color: #fff;
 }
@@ -625,7 +627,7 @@ body {
 .custom-dropdown {
   position: relative;
   display: inline-block;
-  width: 168px;
+  width: 170px;
 }
 
 .custom-dropdown-toggle {
@@ -770,12 +772,16 @@ a:hover {
   transform: translateY(-5px);
 }
 
+.bibbase_group_body {
+    margin-left: 0px;
+}
+
 .filter-options {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .filter-options .form-select,
@@ -935,6 +941,8 @@ footer hr {
     background-size: cover;
     padding: 0 5vw;
     background-attachment: scroll;
+    width: 100%;
+    background-position: center center;
   }
 
   #home .container {
@@ -946,7 +954,7 @@ footer hr {
   }
 
   #home .lead {
-    width: 382px;
+    width: 400px;
   }
 
   #home .theme-box {
@@ -966,11 +974,6 @@ footer hr {
     padding: 8px 8px !important;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  #home section .py-5 {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
   }
 
   #navbarResponsive {
@@ -1011,8 +1014,117 @@ footer hr {
     color: #0f172a !important;
   }
 
+  
+
+  .filter-options {
+    gap: 5px;
+  }
+
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 118px;
+  }
+
+  .custom-dropdown-toggle {
+    font-size: 13px;
+  }
+
+  .all-header-main .lead {
+    font-size: 18px;
+  }
+
+  .research-card .col-md-5 {
+    height: 320px;
+  }
+
+  .research-content {
+    padding: 0px 20px 10px 20px;
+  }
+
+  .research-description {
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .research-description.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+
+  .research-title {
+    font-size: 20px;
+  }
+
   footer h6 {
     font-size: 20px;
+  }
+
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #faculty img,
+  .students-info-section img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+
+
+  
+ .mobile-filter-bar {
+    position: sticky;
+    top: 60px; /* Below navbar */
+    background: white;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 15px;
+  }
+  
+  .mobile-filter-tabs {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .mobile-filter-btn {
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-filter-btn.active {
+    background: #06b6d4;
+    color: white;
+    border-color: #06b6d4;
+  }
+
+  .floating-nav {
+    display: none !important;
   }
 }
 
@@ -1064,15 +1176,16 @@ footer hr {
   }
 
 
+
+
+  /* .floating-nav {
+    display: none !important;
+  } */
+
   footer h6 {
     font-size: 20px;
   }
 }
-
-
-
-/* Most common Android phones */
-@media (max-width: 430px) {}
 
 
 /* Narrow phones like Galaxy S21/S22 */
