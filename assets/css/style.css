@@ -1050,6 +1050,18 @@ footer hr {
     overflow: hidden;
   }
 
+  .read-more-btn {
+    display: inline-block;
+    font-size: 14px;
+    color: #0369a1;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
   .research-description.expanded {
     display: block;
     -webkit-line-clamp: unset;

@@ -273,20 +273,15 @@ document.addEventListener('click', function (event) {
 });
 
 // Toggle “Read More” / “Show Less” on mobile
-document.addEventListener('DOMContentLoaded', function () {
-  // Only attach listeners if we have any read-more buttons
-  document.querySelectorAll('.read-more-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      // Find the closest .research-description sibling
-      var container = btn.closest('.research-content');
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const container = btn.closest('.research-content');
       if (!container) return;
-
-      var desc = container.querySelector('.research-description');
+      const desc = container.querySelector('.research-description');
       if (!desc) return;
 
-      // Toggle the “expanded” class
-      var isExpanded = desc.classList.contains('expanded');
-      if (isExpanded) {
+      if (desc.classList.contains('expanded')) {
         desc.classList.remove('expanded');
         btn.textContent = 'Read More';
       } else {
@@ -308,6 +303,20 @@ document.addEventListener('DOMContentLoaded', function () {
       link.classList.add('active');
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth <= 430) {
+    var result = document.evaluate(
+      "//*[@id='bibbase']/div[1]",
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null
+    );
+    var el = result.singleNodeValue;
+    if (el) el.style.display = 'none';
+  }
 });
 
 // Mobile filter functionality
@@ -333,17 +342,8 @@ function filterSections(category) {
   }
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 430) {
-    var result = document.evaluate(
-      "//*[@id='bibbase']/div[1]",
-      document,
-      null,
-      XPathResult.FIRST_ORDERED_NODE_TYPE,
-      null
-    );
-    var el = result.singleNodeValue;
-    if (el) el.style.display = 'none';
+    filterSections('faculty');
   }
 });
