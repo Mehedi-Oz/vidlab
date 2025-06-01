@@ -62,12 +62,14 @@ function initializeFilters() {
         if (
           ft === 'keyword' &&
           isMobile &&
-          (item.dataset.value === 'Deep-Learning' || item.dataset.value === 'Transfer-Learning')
+          (item.dataset.value === 'Deep-Learning' || item.dataset.value === 'Transfer-Learning' || item.dataset.value === 'Classification')
         ) {
           if (item.dataset.value === 'Deep-Learning') {
-            toggle.textContent = 'Deep...';
-          } else {
+            toggle.textContent = 'Deep-Lear...';
+          if (item.dataset.value === 'Transfer-Learning') {
             toggle.textContent = 'Transfer...';
+          } else {
+            toggle.textContent = 'Classifica...';
           }
         } else {
           // Show full text on desktop or for other keywords
