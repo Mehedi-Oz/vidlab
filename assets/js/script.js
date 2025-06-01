@@ -347,3 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
     filterSections('faculty');
   }
 });
+
+
+
+
