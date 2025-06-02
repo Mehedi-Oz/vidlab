@@ -60,6 +60,13 @@ function initializeFilters() {
 
         const isMobile = window.matchMedia('(max-width: 430px), (max-width: 480px)').matches;
         if (
+          ft === 'type' &&
+          isMobile &&
+          item.dataset.value === 'conference'
+        ) {
+          toggle.textContent = 'Conferen...';
+        }
+        else if (
           ft === 'keyword' &&
           isMobile &&
           (item.dataset.value === 'Deep-Learning' ||
@@ -67,11 +74,11 @@ function initializeFilters() {
             item.dataset.value === 'Classification')
         ) {
           if (item.dataset.value === 'Deep-Learning') {
-            toggle.textContent = 'Deep-Le...';
+            toggle.textContent = 'Deep...';
           } else if (item.dataset.value === 'Transfer-Learning') {
             toggle.textContent = 'Transfer...';
           } else {
-            toggle.textContent = 'Classifica...';
+            toggle.textContent = 'Classific...';
           }
         } else {
           toggle.textContent = item.textContent;
@@ -317,9 +324,9 @@ function filterSections(category) {
 // Initialize custom hamburger behavior for mobile nav
 function initializeCustomHamburger() {
   const customHamburger = document.getElementById('customHamburger');
-  const navbarCollapse  = document.getElementById('navbarResponsive');
-  const menuOverlay     = document.getElementById('menuOverlay');
-  const navLinks        = document.querySelectorAll('.nav-link');
+  const navbarCollapse = document.getElementById('navbarResponsive');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const navLinks = document.querySelectorAll('.nav-link');
 
   navbarCollapse.classList.remove('show');
   menuOverlay.classList.remove('active');
@@ -391,17 +398,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
- window.addEventListener('load', function() {
-    const loader = document.getElementById('pageLoader');
-    if (!loader) return;
+window.addEventListener('load', function () {
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
 
-    // Option A) Instant hide:
-    // loader.style.display = 'none';
+  // Option A) Instant hide:
+  // loader.style.display = 'none';
 
-    // Option B) Fade out smoothly over 300ms:
-    loader.style.transition = 'opacity 0.3s ease';
-    loader.style.opacity = '0';
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 300);
-  });
+  // Option B) Fade out smoothly over 300ms:
+  loader.style.transition = 'opacity 0.3s ease';
+  loader.style.opacity = '0';
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 300);
+});
