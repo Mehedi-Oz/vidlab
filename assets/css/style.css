@@ -850,6 +850,32 @@ body {
   text-decoration: underline;
 }
 
+.research-description {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.research-description.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+}
+
+.read-more-btn {
+  display: inline-block;
+  font-size: 14px;
+  color: #0369a1;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* PUBLICATIONS BIBBASE */
 .bibbase-publications {
   display: flex;
@@ -1026,39 +1052,7 @@ footer hr {
 
 
 
-.research-description {
-  margin-bottom: 10px;
-  display: -webkit-box;
-  /* make it a flexible box for clamping */
-  -webkit-box-orient: vertical;
-  /* stack lines vertically */
-  -webkit-line-clamp: 5;
-  /* limit to 5 lines */
-  overflow: hidden;
-  /* hide the rest */
-}
 
-/* When JavaScript toggles .expanded, remove the clamp so it shows all text */
-.research-description.expanded {
-  display: block;
-  /* override -webkit-box */
-  -webkit-line-clamp: unset;
-  /* lift the clamp */
-  -webkit-box-orient: unset;
-  overflow: visible;
-}
-
-/* Style the Read More button however you like */
-.read-more-btn {
-  display: inline-block;
-  font-size: 14px;
-  color: #0369a1;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-}
 
 
 
@@ -1069,11 +1063,6 @@ footer hr {
 
 
 @media (max-width: 430px) {
-
-  .lead {
-    font-size: 18px;
-  }
-
 
   /*──────────────────────────────────────────────────────────────────────────────
     LOGO CONTAINER
@@ -1216,13 +1205,38 @@ footer hr {
     color: #fff !important;
   }
 
+  .navbar {
+    background: linear-gradient(135deg, #0c1426 0%, #0f172a 100%) !important;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+  }
+
+  .navbar-nav .nav-link {
+    color: #f1f5f9 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-nav .nav-link.active {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+    border-radius: 8px;
+  }
+
+  .navbar-nav .nav-link:hover:not(.active) {
+    background: rgba(6, 182, 212, 0.1);
+    color: #000000 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.15);
+    border-radius: 6px;
+  }
+
 
 
   /*──────────────────────────────────────────────────────────────────────────────
     HERO SECTION ADJUSTMENTS
   ───────────────────────────────────────────────────────────────────────────────*/
   #home {
-    height: 580px;
+    height: 550px;
     width: 100%;
     padding: 0 5vw;
     background-size: cover !important;
@@ -1230,7 +1244,7 @@ footer hr {
   }
 
   #home .container {
-    width: 400px;
+    width: 400px !important;
   }
 
   #home h1 {
@@ -1238,7 +1252,9 @@ footer hr {
   }
 
   #home .lead {
-    width: 400px;
+    width: 380px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   #home .theme-box {
@@ -1263,6 +1279,10 @@ footer hr {
   /*──────────────────────────────────────────────────────────────────────────────
     PEOPLE PAGE
   ───────────────────────────────────────────────────────────────────────────────*/
+
+  .lead {
+    font-size: 18px;
+  }
 
   .mobile-filter-bar {
     position: sticky;
@@ -1395,50 +1415,6 @@ footer hr {
   footer h6 {
     font-size: 20px;
   }
-
-
-
-
-  /*──────────────────────────────────────────────────────────────────────────────
-  1) NAVBAR BACKGROUND – deeper, richer gradient with subtle bottom border
-──────────────────────────────────────────────────────────────────────────────*/
-  .navbar {
-    background: linear-gradient(135deg, #0c1426 0%, #0f172a 100%) !important;
-    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-  2) NAV LINKS – softer off-white text with a smooth easing transition
-──────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav .nav-link {
-    color: #f1f5f9 !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-  3) ACTIVE NAV LINK – enhanced cyan gradient, glow, and rounded corners
-──────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav .nav-link.active {
-    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-    color: #ffffff !important;
-    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
-    border-radius: 8px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-  4) HOVER STATE (non-active) – subtle cyan glow, lift, and slight rounding
-──────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav .nav-link:hover:not(.active) {
-    background: rgba(6, 182, 212, 0.1);
-    color: #000000 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.15);
-    border-radius: 6px;
-  }
-
-
-
-
 
 }
 
@@ -1589,7 +1565,7 @@ footer hr {
     HERO SECTION ADJUSTMENTS
   ───────────────────────────────────────────────────────────────────────────────*/
   #home {
-    height: 580px;
+    height: 550px;
     width: 100%;
     padding: 0 5vw;
     background-size: cover !important;
@@ -1696,9 +1672,6 @@ footer hr {
   /*──────────────────────────────────────────────────────────────────────────────
     RESEARCH CARDS
   ───────────────────────────────────────────────────────────────────────────────*/
-  /* .research-card .col-md-5 {
-    height: 350px;
-  } */
 
   .featured_researches img {
     padding: 5px;
@@ -1772,33 +1745,40 @@ footer hr {
     LOGO CONTAINER
   ───────────────────────────────────────────────────────────────────────────────*/
   .logo-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    background: none !important;
+    box-shadow: none !important;
+    min-width: 0;
+    width: auto;
+    flex: 1 1 0;
+  }
+  .logo-img-wrapper {
     display: flex;
-    position: relative;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    text-align: center;
   }
 
-  .logo-container img {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 0 !important;
+  .logo-text-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
   }
-
-  .logo-container a {
-    text-align: center;
-    width: 100%;
-  }
-
-  .logo-container .logo-text {
-    display: inline-block;
+  .logo-link {
     color: #06b6d4 !important;
     font-size: 1.5rem;
     font-weight: bold;
+    white-space: nowrap;
     text-decoration: none;
+    margin-left: 0;
   }
+
 
   /*──────────────────────────────────────────────────────────────────────────────
     HAMBURGER TOGGLER
@@ -1808,25 +1788,23 @@ footer hr {
   }
 
   .custom-hamburger {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    padding: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 0;
+    margin-right: 0;
     background: none;
     border: none;
-    z-index: 1052;
     cursor: pointer;
+    z-index: 2;
   }
-
   .custom-hamburger span {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: #fff;
     margin: 3px 0;
     border-radius: 2px;
     transition: all 0.3s ease;
@@ -1847,6 +1825,16 @@ footer hr {
   /*──────────────────────────────────────────────────────────────────────────────
     NAVBAR COLLAPSE PANEL
   ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 46px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
   .navbar-collapse {
     position: fixed;
     top: 70px;
@@ -1950,6 +1938,10 @@ footer hr {
     padding: 9px 10px !important;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .lab-director{
+    max-width: 720px !important;
   }
 
   /*──────────────────────────────────────────────────────────────────────────────
