@@ -12,17 +12,39 @@
 </head>
 
 <body class="all-class-padding">
+  <!-- PAGE LOADER: runs until window.load, then disappears -->
+  <div id="pageLoader">
+    <div class="loader-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
+
+      <div class="logo-container navbar-brand d-flex align-items-center">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
-        VIDLab
-      </a>
+        <a href="index.html"><span class="logo-text">VIDLab</span></a>
+      </div>
+
+      <!-- Bootstrap toggler (hidden on mobile) -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Custom hamburger menu (shown on mobile) -->
+      <button class="custom-hamburger" id="customHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -34,6 +56,11 @@
       </div>
     </div>
   </nav>
+
+
+  <!-- Overlay for mobile menu -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
 
   <!-- Header -->
   <section class="py-5 text-center all-header-main">
@@ -118,7 +145,7 @@
                       class="text-primary text-decoration-none">[View Paper]</a>
                   </p>
 
-                  
+
                   <button type="button" class="read-more-btn btn btn-link p-0">Read More</button>
 
                   <div class="keywords">

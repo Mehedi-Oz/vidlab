@@ -1,44 +1,72 @@
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                            ANIMATION & TRANSITIONS                           █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
-/* Animation for page transitions */
-.fade-out {
-  animation: fadeOut 0.3s ease-out forwards;
+/*──────────────────────────────────────────────────────────────────────────────
+  FULL-SCREEN PAGE LOADER
+──────────────────────────────────────────────────────────────────────────────*/
+#pageLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  /* or whatever background you prefer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* ensures it sits on top of everything */
 }
 
-.fade-in {
-  animation: fadeIn 0.3s ease-in forwards;
+/* Container for the five bars */
+#pageLoader .loader-bars {
+  display: flex;
+  gap: 6px;
 }
 
-@keyframes fadeOut {
-  from {
+/* Each vertical bar */
+#pageLoader .loader-bars span {
+  display: block;
+  width: 8px;
+  height: 40px;
+  background-color: #0f172a;
+  /* dark color—change to match your theme */
+  border-radius: 4px;
+  animation: loaderBounce 1s infinite ease-in-out;
+}
+
+/* Offset each bar’s animation by a small fraction */
+#pageLoader .loader-bars span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+#pageLoader .loader-bars span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+#pageLoader .loader-bars span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+#pageLoader .loader-bars span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+#pageLoader .loader-bars span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Keyframes: each bar scales down and up vertically */
+@keyframes loaderBounce {
+
+  0%,
+  100% {
+    transform: scaleY(1);
     opacity: 1;
   }
 
-  to {
-    opacity: 0;
+  50% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
   }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Ensure content container is styled for animation */
-#content-container {
-  opacity: 1;
-  transition: opacity 0.3s ease;
 }
 
 /*
@@ -52,10 +80,6 @@
 body {
   font-family: 'Merriweather', serif;
   background-color: #f1f5f9;
-
-  /* Fallback for body if #content-container is not present */
-  opacity: 1;
-  transition: opacity 0.3s ease;
 }
 
 .body-h1 h1 {
@@ -146,6 +170,26 @@ body {
   font-size: 1.1rem;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-container .logo-text {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-container a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
 /*
 ████████████████████████████████████████████████████████████████████████████████
@@ -196,6 +240,55 @@ body {
   filter: invert(1);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Custom Hamburger Menu for Mobile */
+.custom-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  background: none;
+  border: none;
+}
+
+.custom-hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.custom-hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation */
+.custom-hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.custom-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /*
 ████████████████████████████████████████████████████████████████████████████████
 █                                                                              █
@@ -223,7 +316,7 @@ body {
   position: relative;
   overflow: hidden;
 
-  /* animation: backgroundZoom 20s ease-in-out infinite alternate; */
+  animation: backgroundZoom 20s ease-in-out infinite alternate;
 }
 
 @keyframes backgroundZoom {
@@ -245,19 +338,6 @@ body {
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  animation: contentFadeIn 2s ease-out;
-}
-
-@keyframes contentFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 #home .lead {
@@ -320,6 +400,10 @@ body {
   box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
 }
 
+.featured_researches img {
+  padding: 10px;
+}
+
 /* View All Research Projects Button */
 .btn-outline-secondary {
   color: #06b6d4 !important;
@@ -343,10 +427,6 @@ body {
 
 .all-class-padding {
   padding-top: 56px;
-}
-
-#home{
-  padding-top: 0px;
 }
 
 /* Header/Main Sections (Common to multiple pages) */
@@ -684,6 +764,10 @@ body {
   background-color: #f8f9fa;
 }
 
+#noPublicationsMessage {
+  margin: 40px 0px 40px 0px !important;
+}
+
 #publications h2 {
   color: #0f172a;
   font-weight: 700;
@@ -930,31 +1014,169 @@ footer hr {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* Target all iPhones from 13 mini to 15 Pro Max (portrait) */
 @media (max-width: 430px) {
 
+  .lead {
+    font-size: 18px;
+  }
+
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    LOGO CONTAINER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .logo-container {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo-container img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0 !important;
+  }
+
+  .logo-container a {
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo-container .logo-text {
+    display: inline-block;
+    color: #06b6d4 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HAMBURGER TOGGLER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .custom-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1052;
+    cursor: pointer;
+  }
+
+  .custom-hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .custom-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .custom-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAVBAR COLLAPSE PANEL
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 65%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: top center;
+    width: 90%;
+    max-width: 200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    z-index: 1051;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(-50%) scale(1);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAV LINKS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 150px;
+    padding: 8px 0;
+    margin: auto;
+    color: #0f172a !important;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(6, 182, 212, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+  }
+
+  .navbar-nav .nav-link.active {
+    background-color: #06b6d4;
+    color: #fff !important;
+  }
+
+
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HERO SECTION ADJUSTMENTS
+  ───────────────────────────────────────────────────────────────────────────────*/
   #home {
     height: 580px;
-    padding: 0 10px;
-    background-size: cover;
-    padding: 0 5vw;
-    background-attachment: scroll;
     width: 100%;
-    background-position: center center;
+    padding: 0 5vw;
+    background-size: cover !important;
+    background-attachment: scroll;
   }
 
   #home .container {
-    width: 405px;
+    width: 400px;
   }
 
   #home h1 {
@@ -984,65 +1206,77 @@ footer hr {
     margin-right: auto;
   }
 
-  #navbarResponsive {
-    position: absolute;
-    top: 80px;
-    left: 65%;
-    padding: 10px 0px;
-    transform: translateX(-50%);
-    width: 90% !important;
-    max-width: 220px !important;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    z-index: 1050;
+  /*──────────────────────────────────────────────────────────────────────────────
+    PEOPLE PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+
+  .mobile-filter-bar {
+    position: sticky;
+    top: 60px;
+    background: white;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 15px;
   }
 
-  #navbarResponsive .navbar-nav {
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
+  .mobile-filter-tabs {
+    display: flex;
+    gap: 10px;
   }
 
-  #navbarResponsive .nav-link {
-    padding: 0.5rem 1rem;
+  .mobile-filter-btn {
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
   }
 
-  .navbar-toggler {
-    z-index: 1060;
+  .mobile-filter-btn.active {
+    background-color: #164e63;
+    color: white;
+    border-color: #06b6d4;
   }
 
-  #navbarResponsive {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+  #faculty {
+    padding-top: 0 !important;
   }
 
-  #navbarResponsive .nav-link {
-    color: #0f172a !important;
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
   }
 
-
-
-  .filter-options {
-    gap: 5px;
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  .custom-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 118px;
+  #faculty img,
+  .students-info-section img {
+    max-width: 100%;
+    height: auto;
   }
 
-  .custom-dropdown-toggle {
-    font-size: 13px;
-  }
-
-  .all-header-main .lead {
-    font-size: 18px;
-  }
-
+  /*──────────────────────────────────────────────────────────────────────────────
+    RESEARCH CARDS
+  ───────────────────────────────────────────────────────────────────────────────*/
   .research-card .col-md-5 {
     height: 320px;
+  }
+
+  .featured_researches img {
+    padding: 5px;
   }
 
   .research-content {
@@ -1080,27 +1314,264 @@ footer hr {
     font-size: 20px;
   }
 
+  /*──────────────────────────────────────────────────────────────────────────────
+    PUBLICATIONS PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .filter-options {
+    gap: 5px;
+  }
+
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 118px;
+  }
+
+  .custom-dropdown-toggle {
+    font-size: 13px;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    FOOTER HEADINGS
+  ───────────────────────────────────────────────────────────────────────────────*/
   footer h6 {
     font-size: 20px;
   }
+  
 
-  #faculty .row.justify-content-center .card {
-    width: calc(100% - 30px) !important;
-    margin: 0 15px !important;
-    max-width: calc(100% - 30px) !important;
+
+
+/*──────────────────────────────────────────────────────────────────────────────
+  1) NAVBAR BACKGROUND – deeper, richer gradient with subtle bottom border
+──────────────────────────────────────────────────────────────────────────────*/
+.navbar {
+  background: linear-gradient(135deg, #0c1426 0%, #0f172a 100%) !important;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+/*──────────────────────────────────────────────────────────────────────────────
+  2) NAV LINKS – softer off-white text with a smooth easing transition
+──────────────────────────────────────────────────────────────────────────────*/
+.navbar-nav .nav-link {
+  color: #f1f5f9 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*──────────────────────────────────────────────────────────────────────────────
+  3) ACTIVE NAV LINK – enhanced cyan gradient, glow, and rounded corners
+──────────────────────────────────────────────────────────────────────────────*/
+.navbar-nav .nav-link.active {
+  background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+  border-radius: 8px;
+}
+
+/*──────────────────────────────────────────────────────────────────────────────
+  4) HOVER STATE (non-active) – subtle cyan glow, lift, and slight rounding
+──────────────────────────────────────────────────────────────────────────────*/
+.navbar-nav .nav-link:hover:not(.active) {
+  background: rgba(6, 182, 212, 0.1);
+  color: #000000 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.15);
+  border-radius: 6px;
+}
+
+
+
+
+
+}
+
+@media (max-width: 480px) {
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    LOGO CONTAINER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .logo-container {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
   }
 
-  .students-info-section-card,
-  .students-info-section-card .card-body {
-    width: 100% !important;
-    max-width: 100% !important;
+  .logo-container img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0 !important;
   }
 
-  #faculty img,
-  .students-info-section img {
-    max-width: 100%;
-    height: auto;
+  .logo-container a {
+    text-align: center;
+    width: 100%;
   }
+
+  .logo-container .logo-text {
+    display: inline-block;
+    color: #06b6d4 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HAMBURGER TOGGLER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .custom-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1052;
+    cursor: pointer;
+  }
+
+  .custom-hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .custom-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .custom-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAVBAR COLLAPSE PANEL
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 65%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: top center;
+    width: 90%;
+    max-width: 220px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    z-index: 1051;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(-50%) scale(1);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAV LINKS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 170px;
+    padding: 8px 0;
+    margin: auto;
+    color: #0f172a !important;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(6, 182, 212, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+  }
+
+  .navbar-nav .nav-link.active {
+    background-color: #06b6d4;
+    color: #fff !important;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HERO SECTION ADJUSTMENTS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  #home {
+    height: 580px;
+    width: 100%;
+    padding: 0 5vw;
+    background-size: cover !important;
+    background-attachment: scroll;
+  }
+
+  #home .container {
+    width: 440px;
+  }
+
+  #home h1 {
+    font-size: 32px;
+  }
+
+  #home .lead {
+    width: 400px;
+  }
+
+  #home .theme-box {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .list-unstyled {
+    margin-bottom: 0px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap {
+    gap: 12px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap a {
+    padding: 9px 10px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    PEOPLE PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
 
   .mobile-filter-bar {
     position: sticky;
@@ -1123,7 +1594,7 @@ footer hr {
     padding: 8px 16px;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
-    border-radius: 20px;
+    border-radius: 8px;
     color: #334155;
     font-size: 14px;
     white-space: nowrap;
@@ -1133,30 +1604,266 @@ footer hr {
   }
 
   .mobile-filter-btn.active {
-    background: #06b6d4;
+    background-color: #164e63;
     color: white;
     border-color: #06b6d4;
   }
 
-  .floating-nav {
+  #faculty {
+    padding-top: 0 !important;
+  }
+
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #faculty img {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .students-info-section img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    RESEARCH CARDS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .research-card .col-md-5 {
+    height: 350px;
+  }
+
+  .featured_researches img {
+    padding: 5px;
+  }
+
+  .research-content {
+    padding: 0px 20px 10px 20px;
+  }
+
+  .research-description {
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    font-size: 14px;
+    color: #0369a1;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .research-description.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+
+  .research-title {
+    font-size: 20px;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    PUBLICATIONS PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .filter-options {
+    gap: 5px;
+  }
+
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 135px;
+  }
+
+  .custom-dropdown-toggle {
+    font-size: 15px;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    FOOTER HEADINGS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  footer h6 {
+    font-size: 20px;
+  }
+}
+
+
+/* Target all tablets (portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    LOGO CONTAINER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .logo-container {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo-container img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0 !important;
+  }
+
+  .logo-container a {
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo-container .logo-text {
+    display: inline-block;
+    color: #06b6d4 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HAMBURGER TOGGLER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-toggler {
     display: none !important;
   }
 
-}
+  .custom-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1052;
+    cursor: pointer;
+  }
 
-/* Target all Android Phones */
-@media (max-width: 445px) {
+  .custom-hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
 
+  .custom-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .custom-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .custom-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAVBAR COLLAPSE PANEL
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 75%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: top center;
+    width: 90%;
+    max-width: 300px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    z-index: 1051;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(-50%) scale(1);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAV LINKS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 250px;
+    padding: 8px 0;
+    margin: auto;
+    color: #0f172a !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(6, 182, 212, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+  }
+
+  .navbar-nav .nav-link.active {
+    background-color: #06b6d4;
+    color: #fff !important;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HERO SECTION ADJUSTMENTS
+  ───────────────────────────────────────────────────────────────────────────────*/
   #home {
-    height: 530px;
-    padding: 0 10px;
-    background-size: cover;
+    height: 490px;
+    width: 100%;
     padding: 0 5vw;
+    background-size: cover !important;
     background-attachment: scroll;
   }
 
   #home .container {
-    width: 405px;
+    width: 730px;
   }
 
   #home h1 {
@@ -1164,7 +1871,7 @@ footer hr {
   }
 
   #home .lead {
-    width: 382px;
+    width: 660px;
   }
 
   #home .theme-box {
@@ -1177,41 +1884,189 @@ footer hr {
   }
 
   .d-flex.justify-content-center.flex-nowrap {
-    gap: 8px;
+    gap: 12px;
   }
 
   .d-flex.justify-content-center.flex-nowrap a {
-    padding: 8px 8px !important;
+    padding: 9px 10px !important;
     margin-left: auto;
     margin-right: auto;
   }
 
-  #home section .py-5 {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+  /*──────────────────────────────────────────────────────────────────────────────
+    PEOPLE PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+
+  .mobile-filter-bar {
+    position: sticky;
+    top: 60px;
+    background: white;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 15px;
   }
 
+  .mobile-filter-tabs {
+    display: flex;
+    gap: 10px;
+  }
 
+  .mobile-filter-btn {
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
 
+  .mobile-filter-btn.active {
+    background-color: #164e63;
+    color: white;
+    border-color: #06b6d4;
+  }
 
-  /* .floating-nav {
-    display: none !important;
-  } */
+  #faculty {
+    padding-top: 0 !important;
+  }
 
-  footer h6 {
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .students-info-section .card-body {
+    padding-left: 15px !important;
+    padding-right: 30px !important;
+  }
+
+  #faculty .card {
+    height: 300px !important;
+    margin-bottom: 0px !important;
+  }
+
+  #faculty img {
+    width: 220px !important;
+    height: 235px !important;
+  }
+
+  .students-info-section img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  #floating-nav {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  #faculty p {
+    font-size: 18px;
+  }
+
+  #faculty h2 {
+    padding-top: 24px;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    RESEARCH CARDS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .research-card .col-md-5 {
+    height: 350px;
+  }
+
+  .research-title {
+    padding-top: 10px;
+  }
+
+  .featured_researches img {
+    padding: 5px;
+  }
+
+  .featured_researches .card-text {
+    font-size: 14px;
+  }
+
+  .research-content {
+    padding: 0px 20px 10px 20px;
+  }
+
+  .research-description {
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    font-size: 14px;
+    color: #0369a1;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .research-description.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+
+  .research-title {
     font-size: 20px;
   }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    PUBLICATIONS PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .filter-options {
+    gap: 5px;
+  }
+
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 185px;
+  }
+
+  .custom-dropdown-toggle {
+    font-size: 15px;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    FOOTER HEADINGS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  footer h6 {
+    font-size: 13px;
+  }
+
+  footer p,
+  small {
+    font-size: 12px;
+  }
+
+
 }
-
-
-/* Narrow phones like Galaxy S21/S22 */
-@media (max-width: 384px) {}
-
-
-
-
-/* Target all tablets (portrait) */
-@media (min-width: 740px) and (max-width: 1024px) {}
 
 /* Target large tablets like iPad Pro 12.9” */
 @media (min-width: 1024px) and (max-width: 1366px) {}

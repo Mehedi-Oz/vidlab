@@ -13,17 +13,39 @@
 </head>
 
 <body class="zoom-bg">
+  <!-- PAGE LOADER: runs until window.load, then disappears -->
+  <div id="pageLoader">
+    <div class="loader-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
+
+      <div class="logo-container navbar-brand d-flex align-items-center">
         <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
-        VIDLab
-      </a>
+        <a href="index.html"><span class="logo-text">VIDLab</span></a>
+      </div>
+
+      <!-- Bootstrap toggler (hidden on mobile) -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Custom hamburger menu (shown on mobile) -->
+      <button class="custom-hamburger" id="customHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
@@ -35,6 +57,10 @@
       </div>
     </div>
   </nav>
+
+
+  <!-- Overlay for mobile menu -->
+  <div class="menu-overlay" id="menuOverlay"></div>
 
   <!-- Home Section -->
   <section id="home">
@@ -105,7 +131,7 @@
   <!-- Featured Research Section -->
   <section class="pb-4">
     <div class="mx-auto div_items_max_width">
-      <div class="container text-center">
+      <div class="container text-center featured_researches">
         <h2 class="fw-bold mb-3">Featured Researches</h2>
         <p class="mb-3">Discover our latest breakthroughs and ongoing research projects that are making a difference.
         </p>

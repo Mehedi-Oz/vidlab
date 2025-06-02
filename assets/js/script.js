@@ -14,7 +14,9 @@ function initializeFloatingNav() {
       });
       if (!current) return;
       navLinks.forEach(n => n.classList.remove('active'));
-      const act = document.querySelector(`#floating-nav .nav-link[href="#${current.id}"]`);
+      const act = document.querySelector(
+        `#floating-nav .nav-link[href="#${current.id}"]`
+      );
       if (act) act.classList.add('active');
     }
 
@@ -32,11 +34,12 @@ function initializeFilters() {
     const publicationsList = document.getElementById('publicationsList');
     if (!publicationsList) return;
 
-    const allEntries = Array.from(publicationsList.querySelectorAll('.publication-entry'));
+    const allEntries = Array.from(
+      publicationsList.querySelectorAll('.publication-entry')
+    );
     const dropdowns = {};
     let currentFilters = { year: '', type: '', keyword: '' };
 
-    // Setup custom dropdowns
     document.querySelectorAll('.custom-dropdown').forEach(element => {
       const ft = element.dataset.filter;
       const toggle = element.querySelector('.custom-dropdown-toggle');
@@ -52,27 +55,25 @@ function initializeFilters() {
       menu.addEventListener('click', e => {
         const item = e.target;
         if (!item.classList.contains('custom-dropdown-item')) return;
-        if (item.dataset.value === '') return; // placeholder
+        if (item.dataset.value === '') return;
         currentFilters[ft] = item.dataset.value;
 
-        // Determine if we're on a small screen (≤ 430px)
-        const isMobile = window.matchMedia('(max-width: 430px)').matches;
-
-        // For the keyword dropdown on mobile, truncate Deep-Learning and Transfer-Learning
+        const isMobile = window.matchMedia('(max-width: 430px), (max-width: 480px)').matches;
         if (
           ft === 'keyword' &&
           isMobile &&
-          (item.dataset.value === 'Deep-Learning' || item.dataset.value === 'Transfer-Learning' || item.dataset.value === 'Classification')
+          (item.dataset.value === 'Deep-Learning' ||
+            item.dataset.value === 'Transfer-Learning' ||
+            item.dataset.value === 'Classification')
         ) {
           if (item.dataset.value === 'Deep-Learning') {
-            toggle.textContent = 'Deep-Lear...';
-          if (item.dataset.value === 'Transfer-Learning') {
+            toggle.textContent = 'Deep-Le...';
+          } else if (item.dataset.value === 'Transfer-Learning') {
             toggle.textContent = 'Transfer...';
           } else {
             toggle.textContent = 'Classifica...';
           }
         } else {
-          // Show full text on desktop or for other keywords
           toggle.textContent = item.textContent;
         }
 
@@ -85,18 +86,25 @@ function initializeFilters() {
       Object.values(dropdowns).forEach(d => d.menu.classList.remove('show'))
     );
 
-    // Collect & sort values
     const years = [...new Set(allEntries.map(e => e.dataset.year))].sort(
       (a, b) => Number(b) - Number(a)
     );
-    let types = [...new Set(allEntries.map(e => e.dataset.type.toLowerCase()))];
+    let types = [
+      ...new Set(allEntries.map(e => e.dataset.type.toLowerCase()))
+    ];
     const hasOther = types.includes('other');
     if (hasOther) types = types.filter(t => t !== 'other');
     types.sort();
     if (hasOther) types.push('other');
-    const keywords = ['Classification', 'CNN', 'Detection', 'Deep-Learning', 'Transfer-Learning', 'Other'];
+    const keywords = [
+      'Classification',
+      'CNN',
+      'Detection',
+      'Deep-Learning',
+      'Transfer-Learning',
+      'Other'
+    ];
 
-    // Populate dropdown menus
     function populate(ft, items, def) {
       const menu = dropdowns[ft].menu;
       menu.innerHTML = `<div class="custom-dropdown-item" data-value="">${def}</div>`;
@@ -112,7 +120,6 @@ function initializeFilters() {
     populate('type', types, 'Type');
     populate('keyword', keywords, 'Keyword');
 
-    // Filter application with no-results message
     function applyFilters() {
       let found = 0;
       allEntries.forEach(entry => {
@@ -122,7 +129,8 @@ function initializeFilters() {
         let show = true;
         if (currentFilters.year && y !== currentFilters.year) show = false;
         if (currentFilters.type && t !== currentFilters.type) show = false;
-        if (currentFilters.keyword && !ks.includes(currentFilters.keyword)) show = false;
+        if (currentFilters.keyword && !ks.includes(currentFilters.keyword))
+          show = false;
         entry.style.display = show ? 'block' : 'none';
         if (show) found++;
       });
@@ -132,7 +140,8 @@ function initializeFilters() {
         if (!msg) {
           msg = document.createElement('p');
           msg.id = msgId;
-          msg.textContent = 'No publications found matching your filters. Please try other filters.';
+          msg.textContent =
+            'No publications found matching your filters. Please try other filters.';
           msg.className = 'text-center mt-4 text-muted';
           publicationsList.appendChild(msg);
         }
@@ -142,7 +151,6 @@ function initializeFilters() {
       }
     }
 
-    // Reset button
     const resetBtn = document.getElementById('resetFilters');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
@@ -155,7 +163,6 @@ function initializeFilters() {
       });
     }
 
-    // Initial filter
     applyFilters();
   } catch (e) {
     console.error('Filter init error:', e);
@@ -196,7 +203,9 @@ function initializeGalleryFilters() {
     });
   }
   function filt(c) {
-    secs.forEach(s => (s.style.display = c === 'all' || s.dataset.category === c ? 'flex' : 'none'));
+    secs.forEach(s =>
+      (s.style.display = c === 'all' || s.dataset.category === c ? 'flex' : 'none')
+    );
     c === 'all' ? add() : clr();
   }
   btns.forEach(b =>
@@ -209,75 +218,29 @@ function initializeGalleryFilters() {
   filt('all');
 }
 
-// Motion Animation Integration
-function initializePageTransitions() {
-  const links = document.querySelectorAll('.navbar-nav .nav-link, #floating-nav .nav-link');
-  const cont = document.getElementById('content-container') || document.body;
-  links.forEach(link =>
-    link.addEventListener('click', async e => {
-      e.preventDefault();
-      links.forEach(n => n.classList.remove('active'));
-      link.classList.add('active');
-      const href = link.getAttribute('href');
-      if (href.startsWith('#')) {
-        const tgt = document.getElementById(href.slice(1));
-        if (tgt) window.scrollTo({ top: tgt.offsetTop - 80, behavior: 'smooth' });
-      } else {
-        cont.classList.add('fade-out');
-        await new Promise(r => setTimeout(r, 300));
-        try {
-          const res = await fetch(href);
-          if (!res.ok) throw '';
-          const html = await res.text();
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          const newC = doc.querySelector('#content-container') || doc.body;
-          cont.innerHTML = newC.innerHTML;
-          initializeFloatingNav();
-          initializeFilters();
-          initializeGalleryModals();
-          initializeGalleryFilters();
-          cont.classList.remove('fade-out');
-          cont.classList.add('fade-in');
-          await new Promise(r => setTimeout(r, 300));
-          cont.classList.remove('fade-in');
-        } catch (err) {
-          console.error(err);
-          cont.classList.remove('fade-out');
-        }
+// Close navbar when clicking anywhere except on the hamburger itself
+function initializeNavbarOutsideClick() {
+  document.addEventListener('click', function (event) {
+    const navbar = document.getElementById('navbarResponsive');
+    const customHamburger = document.getElementById('customHamburger');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    // If the nav is open and the click is not on the hamburger, close it.
+    if (navbar.classList.contains('show') && !customHamburger.contains(event.target)) {
+      navbar.classList.remove('show');
+      customHamburger.classList.remove('active');
+      if (menuOverlay) {
+        menuOverlay.classList.remove('active');
       }
-    })
-  );
+      document.body.style.overflow = 'auto';
+    }
+  });
 }
 
-// Main init
-document.addEventListener('DOMContentLoaded', () => {
-  initializeFloatingNav();
-  initializeFilters();
-  initializeGalleryModals();
-  initializeGalleryFilters();
-  initializePageTransitions();
-});
-
-// Close navbar when clicking outside
-document.addEventListener('click', function (event) {
-  var navbar = document.getElementById('navbarResponsive');
-  var toggler = document.querySelector('.navbar-toggler');
-  if (
-    navbar.classList.contains('show') &&
-    !navbar.contains(event.target) &&
-    !toggler.contains(event.target)
-  ) {
-    var bsCollapse = bootstrap.Collapse.getInstance(navbar);
-    if (bsCollapse) {
-      bsCollapse.hide();
-    }
-  }
-});
-
 // Toggle “Read More” / “Show Less” on mobile
-document.addEventListener('DOMContentLoaded', function() {
+function initializeReadMoreToggle() {
   document.querySelectorAll('.read-more-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       const container = btn.closest('.research-content');
       if (!container) return;
       const desc = container.querySelector('.research-description');
@@ -292,64 +255,153 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-});
+}
 
-
-document.addEventListener('DOMContentLoaded', function () {
+// Highlight active nav link based on current page
+function initializeActiveNavLink() {
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const currentPage = window.location.pathname.split('/').pop();
-
   navLinks.forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     }
   });
-});
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+// Hide bibbase element on mobile
+function initializeBibbaseHide() {
   if (window.innerWidth <= 430) {
-    var result = document.evaluate(
+    const result = document.evaluate(
       "//*[@id='bibbase']/div[1]",
       document,
       null,
       XPathResult.FIRST_ORDERED_NODE_TYPE,
       null
     );
-    var el = result.singleNodeValue;
+    const el = result.singleNodeValue;
     if (el) el.style.display = 'none';
   }
-});
+}
 
-// Mobile filter functionality
-document.addEventListener('DOMContentLoaded', function() {
+// Mobile filter functionality for faculty/alumni/graduate/undergraduate sections
+function initializeMobileSectionFilters() {
   const filterBtns = document.querySelectorAll('.mobile-filter-btn');
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       filterBtns.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       const filterValue = this.getAttribute('data-filter');
       filterSections(filterValue);
     });
   });
-});
 
+  if (window.innerWidth <= 430) {
+    filterSections('faculty');
+  }
+}
+
+// Helper to filter faculty/alumni/graduate/undergraduate
 function filterSections(category) {
-  document.querySelectorAll('#faculty, #alumni, #graduate, #undergraduate').forEach(section => {
-    section.style.display = 'none';
-  });
+  document
+    .querySelectorAll('#faculty, #alumni, #graduate, #undergraduate')
+    .forEach(section => {
+      section.style.display = 'none';
+    });
   const targetSection = document.getElementById(category);
   if (targetSection) {
     targetSection.style.display = 'block';
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.innerWidth <= 430) {
-    filterSections('faculty');
-  }
+// Initialize custom hamburger behavior for mobile nav
+function initializeCustomHamburger() {
+  const customHamburger = document.getElementById('customHamburger');
+  const navbarCollapse  = document.getElementById('navbarResponsive');
+  const menuOverlay     = document.getElementById('menuOverlay');
+  const navLinks        = document.querySelectorAll('.nav-link');
+
+  navbarCollapse.classList.remove('show');
+  menuOverlay.classList.remove('active');
+  customHamburger.classList.remove('active');
+
+  customHamburger.addEventListener('click', function () {
+    customHamburger.classList.toggle('active');
+    navbarCollapse.classList.toggle('show');
+    menuOverlay.classList.toggle('active');
+    document.body.style.overflow = navbarCollapse.classList.contains('show') ? 'hidden' : 'auto';
+  });
+
+  menuOverlay.addEventListener('click', function () {
+    customHamburger.classList.remove('active');
+    navbarCollapse.classList.remove('show');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      if (window.innerWidth <= 430) {
+        customHamburger.classList.remove('active');
+        setTimeout(() => {
+          navbarCollapse.classList.remove('show');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }, 300);
+      }
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 430) {
+      customHamburger.classList.remove('active');
+      navbarCollapse.classList.remove('show');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
+
+
+// Force page reload when loaded from bfcache
+function initializePageShowReload() {
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      // Page was loaded from cache, force reload
+      window.location.reload();
+    }
+  });
+}
+
+// Main initialization
+document.addEventListener('DOMContentLoaded', () => {
+  initializeFloatingNav();
+  initializeFilters();
+  initializeGalleryModals();
+  initializeGalleryFilters();
+  initializeNavbarOutsideClick();
+  initializeReadMoreToggle();
+  initializeActiveNavLink();
+  initializeBibbaseHide();
+  initializeMobileSectionFilters();
+  initializeCustomHamburger();
+  initializePageShowReload();
 });
 
 
+ window.addEventListener('load', function() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
 
+    // Option A) Instant hide:
+    // loader.style.display = 'none';
 
+    // Option B) Fade out smoothly over 300ms:
+    loader.style.transition = 'opacity 0.3s ease';
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 300);
+  });
