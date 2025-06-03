@@ -1918,7 +1918,7 @@ footer hr {
   }
 
   #home .lead {
-    width: 660px;
+    width: 650px !important;
   }
 
   #home .theme-box {
@@ -2114,6 +2114,3 @@ footer hr {
 
 
 }
-
-/* Target large tablets like iPad Pro 12.9” */
-@media (min-width: 1024px) and (max-width: 1366px) {}

@@ -37,8 +37,53 @@ function initializeFilters() {
     const allEntries = Array.from(
       publicationsList.querySelectorAll('.publication-entry')
     );
+
+    // Store dropdown elements and the three source‐arrays (years, types, keywords)
     const dropdowns = {};
     let currentFilters = { year: '', type: '', keyword: '' };
+
+    // Build the three arrays once, up front
+    const years = [...new Set(allEntries.map(e => e.dataset.year))].sort(
+      (a, b) => Number(b) - Number(a)
+    );
+
+    let types = [
+      ...new Set(allEntries.map(e => e.dataset.type.toLowerCase()))
+    ];
+    const hasOther = types.includes('other');
+    if (hasOther) types = types.filter(t => t !== 'other');
+    types.sort();
+    if (hasOther) types.push('other');
+
+    const keywords = [
+      'Attention',
+      'Classification',
+      'CNN',
+      'Detection',
+      'Deep-Learning',
+      'Ensemble',
+      'Regression',
+      'Segmentation',
+      'Transfer-Learning',
+      'Other'
+    ];
+
+    // Helper to rebuild one menu, omitting the currently selected value (if any)
+    function rebuildMenu(ft, items) {
+      const menu = dropdowns[ft].menu;
+      menu.innerHTML = ''; // clear out existing items
+
+      items.forEach(v => {
+        // if this value is currently selected, skip it
+        if (v === currentFilters[ft]) return;
+
+        const div = document.createElement('div');
+        div.className = 'custom-dropdown-item';
+        div.dataset.value = v;
+        div.textContent = v.charAt(0).toUpperCase() + v.slice(1);
+        menu.appendChild(div);
+      });
+    }
 
     document.querySelectorAll('.custom-dropdown').forEach(element => {
       const ft = element.dataset.filter;
@@ -46,9 +91,20 @@ function initializeFilters() {
       const menu = element.querySelector('.custom-dropdown-menu');
       dropdowns[ft] = { toggle, menu };
 
+      // When you click the toggle, rebuild that menu without the currently selected value
       toggle.addEventListener('click', e => {
         e.stopPropagation();
         Object.values(dropdowns).forEach(d => d.menu.classList.remove('show'));
+
+        // Choose the right array based on ft
+        if (ft === 'year') {
+          rebuildMenu('year', years);
+        } else if (ft === 'type') {
+          rebuildMenu('type', types);
+        } else if (ft === 'keyword') {
+          rebuildMenu('keyword', keywords);
+        }
+
         menu.classList.toggle('show');
       });
 
@@ -56,8 +112,11 @@ function initializeFilters() {
         const item = e.target;
         if (!item.classList.contains('custom-dropdown-item')) return;
         if (item.dataset.value === '') return;
+
+        // Set the filter to the clicked value
         currentFilters[ft] = item.dataset.value;
 
+        // Adjust toggle text (with mobile abbreviations if needed)
         const isMobile = window.matchMedia('(max-width: 430px), (max-width: 480px)').matches;
         if (
           ft === 'type' &&
@@ -65,8 +124,7 @@ function initializeFilters() {
           item.dataset.value === 'conference'
         ) {
           toggle.textContent = 'Conferen...';
-        }
-        else if (
+        } else if (
           ft === 'keyword' &&
           isMobile &&
           (item.dataset.value === 'Deep-Learning' ||
@@ -89,58 +147,41 @@ function initializeFilters() {
       });
     });
 
+    // Close any open menus when clicking outside
     document.addEventListener('click', () =>
       Object.values(dropdowns).forEach(d => d.menu.classList.remove('show'))
     );
 
-    const years = [...new Set(allEntries.map(e => e.dataset.year))].sort(
-      (a, b) => Number(b) - Number(a)
-    );
-    let types = [
-      ...new Set(allEntries.map(e => e.dataset.type.toLowerCase()))
-    ];
-    const hasOther = types.includes('other');
-    if (hasOther) types = types.filter(t => t !== 'other');
-    types.sort();
-    if (hasOther) types.push('other');
-    const keywords = [
-      'Classification',
-      'CNN',
-      'Detection',
-      'Deep-Learning',
-      'Transfer-Learning',
-      'Other'
-    ];
-
-    function populate(ft, items, def) {
-      const menu = dropdowns[ft].menu;
-      menu.innerHTML = `<div class="custom-dropdown-item" data-value="">${def}</div>`;
-      items.forEach(v => {
-        const div = document.createElement('div');
-        div.className = 'custom-dropdown-item';
-        div.dataset.value = v;
-        div.textContent = v.charAt(0).toUpperCase() + v.slice(1);
-        menu.appendChild(div);
-      });
-    }
-    populate('year', years, 'Year');
-    populate('type', types, 'Type');
-    populate('keyword', keywords, 'Keyword');
+    // Initial population of toggles
+    document.querySelector('.custom-dropdown[data-filter="year"] .custom-dropdown-toggle').textContent = 'Year';
+    document.querySelector('.custom-dropdown[data-filter="type"] .custom-dropdown-toggle').textContent = 'Type';
+    document.querySelector('.custom-dropdown[data-filter="keyword"] .custom-dropdown-toggle').textContent = 'Keyword';
 
     function applyFilters() {
       let found = 0;
       allEntries.forEach(entry => {
         const y = entry.dataset.year;
         const t = entry.dataset.type.toLowerCase();
-        const ks = entry.dataset.keywords.split(' ');
+
+        const ks = entry.dataset.keywords
+          .split(',')
+          .map(k => k.trim().toLowerCase());
+
         let show = true;
         if (currentFilters.year && y !== currentFilters.year) show = false;
         if (currentFilters.type && t !== currentFilters.type) show = false;
-        if (currentFilters.keyword && !ks.includes(currentFilters.keyword))
+
+        if (
+          currentFilters.keyword &&
+          !ks.includes(currentFilters.keyword.toLowerCase())
+        ) {
           show = false;
+        }
+
         entry.style.display = show ? 'block' : 'none';
         if (show) found++;
       });
+
       const msgId = 'noPublicationsMessage';
       let msg = document.getElementById(msgId);
       if (found === 0) {
@@ -158,23 +199,29 @@ function initializeFilters() {
       }
     }
 
+    // “Reset Filters” button must put everything back
     const resetBtn = document.getElementById('resetFilters');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         currentFilters = { year: '', type: '', keyword: '' };
+
+        // Restore toggle labels
         Object.keys(dropdowns).forEach(ft => {
           const def = ft.charAt(0).toUpperCase() + ft.slice(1);
           dropdowns[ft].toggle.textContent = def;
         });
+
         applyFilters();
       });
     }
 
+    // Run once to apply “no filters” initially
     applyFilters();
   } catch (e) {
     console.error('Filter init error:', e);
   }
 }
+
 
 // Initializes modal images
 function initializeGalleryModals() {
