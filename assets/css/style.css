@@ -78,7 +78,7 @@
 */
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Spectral', serif;
   background-color: #f1f5f9;
 }
 
@@ -344,7 +344,8 @@ body {
   font-size: 17px;
   margin-left: auto;
   margin-right: auto;
-  width: 980px;
+  width: 100%;
+  max-width: 980px;
 }
 
 #home:hover {
@@ -1736,6 +1737,7 @@ footer hr {
     font-size: 20px;
   }
 }
+
 
 
 /* Target all tablets (portrait) */

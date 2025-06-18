@@ -8,6 +8,7 @@
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -27,9 +28,13 @@
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
 
-      <div class="logo-container navbar-brand d-flex align-items-center">
-        <img src="assets/images/favicon.png" alt="Favicon" class="me-2" style="width: 24px; height: 24px;">
-        <a href="index.html"><span class="logo-text">VIDLab</span></a>
+      <div class="logo-container navbar-brand">
+        <div class="logo-img-wrapper">
+          <img src="assets/images/favicon.png" alt="Favicon" class="logo-img" style="width: 23px; height: 23px;">
+        </div>
+        <div class="logo-text-wrapper">
+          <a href="index.html" class="logo-link">VIDLab</a>
+        </div>
       </div>
 
       <!-- Bootstrap toggler (hidden on mobile) -->
@@ -69,7 +74,7 @@
     </div>
   </section>
 
-  
+
   <!-- Floating Nav -->
   <!-- Desktop Filter Bar (only shows on Desktop) -->
   <div id="floating-nav" class="floating-nav text-center d-none d-md-flex">
@@ -104,11 +109,13 @@
               <p class="card-text">
                 <strong>Associate Professor</strong><br>
                 <strong>Department:</strong> Software Engineering, Lakehead University<br>
-                <strong>Email:</strong> takilan@lakeheadu.ca<br>
-                <strong>Office Location:</strong> ATAC5014<br>
+                <i class="fa-solid fa-envelope"></i> takilan@lakeheadu.ca<br>
+                <i class="fa-solid fa-location-dot"></i> ATAC5014<br>
                 <strong>Office Hours:</strong> By appointment<br>
+                <a href="https://www.lakeheadu.ca/users/A/takilan" target="_blank"
+                  class="text-info text-decoration-none btn btn-light border">Academic Profile</a>
                 <a href="https://scholar.google.ca/citations?hl=en&user=d7VHPp4AAAAJ" target="_blank"
-                  class="text-info text-decoration-none">Google Scholar</a>
+                  class="text-info text-decoration-none btn btn-light border">Google Scholar</a>
               </p>
             </div>
           </div>
@@ -178,27 +185,10 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Kevin Genereux</h5>
+            <h5 class="card-title">Mohammad Arshi-Saloot</h5>
             <p class="card-text">
-              MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Deep Learning-based Intracranial Hemorrhage Segmentation.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row g-0 mb-4 pb-4 border-bottom">
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img src="assets/images/people/Harish Sundaralingam2.jpg" class="img-fluid rounded-start"
-            alt="Christopher Silver">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Harish Sundaralingam</h5>
-            <p class="card-text">
-              MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Enhancing Object Detection in Complex Scenes: A Semantic Segmentation-aware
-              Framework with Attention-Gating for Improved Small Object Detection.
+              Postdoc<br>
+              <strong>Topic:</strong> Advanced Automation System for Human Capital Hiring and Retention.
             </p>
           </div>
         </div>
@@ -210,10 +200,25 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Kevin Genereux</h5>
+            <h5 class="card-title">Nusrat Jahan</h5>
             <p class="card-text">
               MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Deep Learning-based Intracranial Hemorrhage Segmentation.
+              <strong>Topic:</strong> An Improved Semi-Supervised Learning Framework for Image Semantic Segmentation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-0 mb-4 pb-4 border-bottom">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <img src="assets/images/people/dummy DP.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Siavash Hosseini</h5>
+            <p class="card-text">
+              MSc. in Electrical and Computer Engineering<br>
+              <strong>Topic:</strong> Regression Modelling for Industrial Applications.
             </p>
           </div>
         </div>
@@ -225,10 +230,11 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Kevin Genereux</h5>
+            <h5 class="card-title">Tharrengini Suresh</h5>
             <p class="card-text">
               MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Deep Learning-based Intracranial Hemorrhage Segmentation.
+              <strong>Topic:</strong> Semantic Segmentation with Edge-Context Enrichment and Attention Strategies: A
+              Refined Framework for Improved Performance in Complex Visual Environments.
             </p>
           </div>
         </div>
@@ -243,14 +249,15 @@
 
       <div class="row g-0 mb-4 pb-4 border-bottom students-info-first-card">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img src="assets/images/people/Fahim Ur Rahman.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
+          <img src="assets/images/people/dummy DP.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Fahim Ur Rahman</h5>
+            <h5 class="card-title">Chee Mei Ling (Irene)</h5>
             <p class="card-text">
               <b></b>MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Lightweight Point Cloud Network for Real-Time 3D Object Detection.
+              <strong>Topic:</strong> Agriculture-Vision: A Large Aerial Image Database for Agricultural Pattern
+              Analysis.
             </p>
           </div>
         </div>
@@ -273,29 +280,14 @@
 
       <div class="row g-0 mb-4 pb-4 border-bottom">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img src="assets/images/people/Fahim Ur Rahman.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
+          <img src="assets/images/people/dummy DP.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Fahim Ur Rahman</h5>
+            <h5 class="card-title">Gaeul Han</h5>
             <p class="card-text">
               <b></b>MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Lightweight Point Cloud Network for Real-Time 3D Object Detection.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row g-0 mb-4 pb-4 border-bottom">
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img src="assets/images/people/Fahim Ur Rahman.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Fahim Ur Rahman</h5>
-            <p class="card-text">
-              <b></b>MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Lightweight Point Cloud Network for Real-Time 3D Object Detection.
+              <strong>Topic:</strong> Object detection from thermal images on roads under low-visibility weather.
             </p>
           </div>
         </div>
@@ -303,14 +295,29 @@
 
       <div class="row g-0 mb-4">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img src="assets/images/people/Fahim Ur Rahman.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
+          <img src="assets/images/people/dummy DP.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Fahim Ur Rahman</h5>
+            <h5 class="card-title">Jimmy Tsang</h5>
             <p class="card-text">
               <b></b>MSc. in Electrical and Computer Engineering<br>
-              <strong>Topic:</strong> Lightweight Point Cloud Network for Real-Time 3D Object Detection.
+              <strong>Topic:</strong> Medical Image Analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-0 mb-4">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <img src="assets/images/people/dummy DP.jpg" class="img-fluid rounded-start" alt="Christopher Silver">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Russell Frost</h5>
+            <p class="card-text">
+              <b></b>MSc. in Electrical and Computer Engineering<br>
+              <strong>Topic:</strong> Automated Music Transcription.
             </p>
           </div>
         </div>
@@ -515,7 +522,7 @@
           <p>Vision Intelligence and Data Lab<br>
             Lakehead University<br>
             Thunder Bay, Ontario, Canada<br>
-            Monday to Friday (8.00am - 5.00pm)<br>
+            Monday to Friday (8.00AM - 5.00PM)<br>
             <a href="https://www.google.com/maps/search/Lakehead+University,+Thunder+Bay,+Ontario,+Canada/@48.424393,-89.2591852,14z"
               class="text-info text-decoration-none">Location</a>
           </p>
@@ -529,7 +536,7 @@
           <p>
             Lakehead University<br>
             Thunder Bay, Ontario, Canada<br>
-            Monday to Friday (8.00am - 5.00pm)<br>
+            Monday to Friday (8.00AM - 5.00PM)<br>
             <a href="https://www.google.com/maps/search/Lakehead+University,+Thunder+Bay,+Ontario,+Canada/@48.424393,-89.2591852,14z"
               class="text-info text-decoration-none">Location</a>
           </p>
