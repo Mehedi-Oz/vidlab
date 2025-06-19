@@ -104,8 +104,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   color: #06b6d4;
-  width: 980px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 980px;
 }
 
 .theme-box ul li {
@@ -701,7 +701,7 @@ body {
   max-height: 75vh;
   object-fit: contain;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 8px 20px rgba(104, 104, 104, 0.3);
   display: block;
 }
 
@@ -1739,9 +1739,7 @@ footer hr {
 }
 
 
-
-/* Target all tablets (portrait) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media(min-width: 481px) and (max-width: 768px) {
 
   /*──────────────────────────────────────────────────────────────────────────────
     LOGO CONTAINER
@@ -1759,6 +1757,7 @@ footer hr {
     width: auto;
     flex: 1 1 0;
   }
+
   .logo-img-wrapper {
     display: flex;
     align-items: center;
@@ -1772,6 +1771,7 @@ footer hr {
     flex: 1 1 auto;
     min-width: 0;
   }
+
   .logo-link {
     color: #06b6d4 !important;
     font-size: 1.5rem;
@@ -1803,6 +1803,7 @@ footer hr {
     cursor: pointer;
     z-index: 2;
   }
+
   .custom-hamburger span {
     width: 25px;
     height: 3px;
@@ -1844,7 +1845,7 @@ footer hr {
     transform: translateX(-50%) scale(0);
     transform-origin: top center;
     width: 90%;
-    max-width: 300px;
+    max-width: 220px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -1876,7 +1877,280 @@ footer hr {
 
   .navbar-nav .nav-link {
     display: block;
-    width: 250px;
+    width: 190px;
+    padding: 8px 0;
+    margin: auto;
+    color: #0f172a !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(6, 182, 212, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+  }
+
+  .navbar-nav .nav-link.active {
+    background-color: #06b6d4;
+    color: #fff !important;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HERO SECTION ADJUSTMENTS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  #home {
+    height: 550px;
+    width: 100%;
+    padding: 0 5vw;
+    background-size: cover !important;
+    background-attachment: scroll;
+  }
+
+  #home .container {
+    width: 440px;
+  }
+
+  #home h1 {
+    font-size: 32px;
+  }
+
+  #home .lead {
+    width: 400px;
+  }
+
+  #home .theme-box {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .list-unstyled {
+    margin-bottom: 0px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap {
+    gap: 12px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap a {
+    padding: 9px 10px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    PEOPLE PAGE
+  ───────────────────────────────────────────────────────────────────────────────*/
+
+  .mobile-filter-bar {
+    position: sticky;
+    top: 60px;
+    background: white;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 15px;
+  }
+
+  .mobile-filter-tabs {
+    display: flex;
+    gap: 10px;
+  }
+
+  .mobile-filter-btn {
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-filter-btn.active {
+    background-color: #164e63;
+    color: white;
+    border-color: #06b6d4;
+  }
+
+  #faculty {
+    padding-top: 0 !important;
+  }
+
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #faculty img {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .students-info-section img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+
+/* Target all tablets (portrait) */
+@media (min-width: 768px) and (max-width: 991px) {
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    LOGO CONTAINER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .logo-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    background: none !important;
+    box-shadow: none !important;
+    min-width: 0;
+    width: auto;
+    flex: 1 1 0;
+  }
+
+  .logo-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-text-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .logo-link {
+    color: #06b6d4 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-left: 0;
+  }
+
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    HAMBURGER TOGGLER
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .custom-hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 0;
+    margin-right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .custom-hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .custom-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .custom-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAVBAR COLLAPSE PANEL
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 46px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 75%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: top center;
+    width: 90%;
+    max-width: 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    z-index: 1051;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(-50%) scale(1);
+  }
+
+  /*──────────────────────────────────────────────────────────────────────────────
+    NAV LINKS
+  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 210px;
     padding: 8px 0;
     margin: auto;
     color: #0f172a !important;
@@ -1942,7 +2216,7 @@ footer hr {
     margin-right: auto;
   }
 
-  .lab-director{
+  .lab-director {
     max-width: 720px !important;
   }
 
