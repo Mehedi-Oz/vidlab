@@ -8,32 +8,26 @@
   width: 100vw;
   height: 100vh;
   background-color: #ffffff;
-  /* or whatever background you prefer */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  /* ensures it sits on top of everything */
 }
 
-/* Container for the five bars */
 #pageLoader .loader-bars {
   display: flex;
   gap: 6px;
 }
 
-/* Each vertical bar */
 #pageLoader .loader-bars span {
   display: block;
   width: 8px;
   height: 40px;
   background-color: #0f172a;
-  /* dark color—change to match your theme */
   border-radius: 4px;
   animation: loaderBounce 1s infinite ease-in-out;
 }
 
-/* Offset each bar’s animation by a small fraction */
 #pageLoader .loader-bars span:nth-child(1) {
   animation-delay: 0s;
 }
@@ -54,7 +48,6 @@
   animation-delay: 0.4s;
 }
 
-/* Keyframes: each bar scales down and up vertically */
 @keyframes loaderBounce {
 
   0%,

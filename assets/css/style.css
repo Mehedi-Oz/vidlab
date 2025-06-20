@@ -1,4 +1,44 @@
 /*──────────────────────────────────────────────────────────────────────────────
+  CSS CUSTOM PROPERTIES (VARIABLES)
+──────────────────────────────────────────────────────────────────────────────*/
+:root {
+  /* Colors */
+  --primary-color: #06b6d4;
+  --primary-dark: #164e63;
+  --secondary-color: #0f172a;
+  --accent-color: #10b981;
+  --accent-dark: #059669;
+  --text-primary: #334155;
+  --text-secondary: #666;
+  --bg-light: #f1f5f9;
+  --white: #ffffff;
+  --shadow-color: rgba(6, 182, 212, 0.3);
+
+  /* Typography */
+  --font-family: 'Spectral', serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-2xl: 50px;
+
+  /* Layout */
+  --max-width: 1100px;
+  --border-radius: 8px;
+  --border-radius-sm: 5px;
+  --transition: all 0.3s ease;
+  --shadow-hover: 0 8px 20px var(--shadow-color);
+}
+
+/*──────────────────────────────────────────────────────────────────────────────
   FULL-SCREEN PAGE LOADER
 ──────────────────────────────────────────────────────────────────────────────*/
 #pageLoader {
@@ -7,33 +47,27 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #ffffff;
-  /* or whatever background you prefer */
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  /* ensures it sits on top of everything */
 }
 
-/* Container for the five bars */
 #pageLoader .loader-bars {
   display: flex;
   gap: 6px;
 }
 
-/* Each vertical bar */
 #pageLoader .loader-bars span {
   display: block;
   width: 8px;
   height: 40px;
-  background-color: #0f172a;
-  /* dark color—change to match your theme */
+  background-color: var(--secondary-color);
   border-radius: 4px;
   animation: loaderBounce 1s infinite ease-in-out;
 }
 
-/* Offset each bar’s animation by a small fraction */
 #pageLoader .loader-bars span:nth-child(1) {
   animation-delay: 0s;
 }
@@ -54,7 +88,6 @@
   animation-delay: 0.4s;
 }
 
-/* Keyframes: each bar scales down and up vertically */
 @keyframes loaderBounce {
 
   0%,
@@ -69,71 +102,61 @@
   }
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                            GLOBAL & BASE STYLES                              █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
+/*──────────────────────────────────────────────────────────────────────────────
+  GLOBAL & BASE STYLES
+──────────────────────────────────────────────────────────────────────────────*/
 body {
-  font-family: 'Spectral', serif;
-  background-color: #f1f5f9;
+  font-family: var(--font-family);
+  background-color: var(--bg-light);
 }
 
 .body-h1 h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
 }
 
-/* Utility Classes and Common Divs */
+/* Utility Classes */
 .div_items_max_width {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .theme-box {
   background-color: rgba(6, 182, 212, 0.1);
   border: 1px solid rgba(6, 182, 212, 0.3);
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #06b6d4;
+  border-radius: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) auto;
+  color: var(--primary-color);
   width: 100%;
   max-width: 980px;
 }
 
 .theme-box ul li {
-  color: #06b6d4;
+  color: var(--primary-color);
 }
 
+/* Shared Button Styles */
 .btn-custom {
-  margin-top: 20px;
-  margin-right: 10px;
+  margin-top: var(--spacing-lg);
+  margin-right: var(--spacing-sm);
 }
 
-/* Primary CTA Button - Explore Our Researches */
 .btn-light.btn-custom:first-of-type {
-  background-color: #10b981 !important;
-  border-color: #10b981 !important;
-  color: white !important;
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--white) !important;
 }
 
 .btn-light.btn-custom:first-of-type:hover {
-  background-color: #059669 !important;
-  border-color: #059669 !important;
+  background-color: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
 }
 
-/* Secondary CTA Button - View Publications */
 .btn-light.btn-custom:last-of-type {
-  background-color: #164e63 !important;
-  border-color: #164e63 !important;
-  color: white !important;
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  color: var(--white) !important;
 }
 
 .btn-light.btn-custom:last-of-type:hover {
@@ -141,49 +164,37 @@ body {
   border-color: #0e7490 !important;
 }
 
-.d-flex.justify-content-center.flex-nowrap {
-  gap: 25px;
-}
-
-.shadow-hover {
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.shadow-hover:hover {
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
-}
-
+/* Shared Hover Effects */
+.shadow-hover,
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   cursor: pointer;
 }
 
+.shadow-hover:hover,
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-hover);
 }
 
 .section-subtitle {
   text-align: center;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 3rem;
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
 }
 
+/* Logo Container */
 .logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.logo-container .logo-text {
-  color: inherit;
-  text-decoration: none;
-}
-
+.logo-container .logo-text,
 .logo-container a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 .logo-container a:hover {
@@ -191,48 +202,40 @@ body {
   color: inherit;
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                              NAVIGATION BAR                                  █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
+/*──────────────────────────────────────────────────────────────────────────────
+  NAVIGATION BAR
+──────────────────────────────────────────────────────────────────────────────*/
 .navbar {
-  background-color: #0f172a !important;
+  background-color: var(--secondary-color) !important;
 }
 
 .navbar-brand {
   font-weight: bold;
-  color: #06b6d4 !important;
-  background: none;
-  -webkit-background-clip: initial;
-  background-clip: initial;
-  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  font-size: var(--font-size-xl);
 }
 
 .navbar-nav .nav-link {
-  color: #fff !important;
+  color: var(--white) !important;
   font-weight: 600;
   text-decoration: none;
   padding: 8px 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
 }
 
 .navbar-nav .nav-item {
-  margin: 2px 10px;
+  margin: 2px var(--spacing-sm);
 }
 
 .navbar-nav .nav-link.active {
-  background-color: #06b6d4;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
 .navbar-nav .nav-link:hover:not(.active) {
-  background-color: #164e63;
-  color: #fff;
+  background-color: var(--primary-dark);
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -240,25 +243,14 @@ body {
   filter: invert(1);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* Custom Hamburger Menu for Mobile */
+/* Custom Hamburger Menu */
 .custom-hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   padding: 8px;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
   background: none;
   border: none;
 }
@@ -270,13 +262,12 @@ body {
 .custom-hamburger span {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--white);
   margin: 3px 0;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   border-radius: 2px;
 }
 
-/* Hamburger Animation */
 .custom-hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -289,22 +280,17 @@ body {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                                 HOME PAGE                                    █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
-/* Animated Background for Home Section */
+/*──────────────────────────────────────────────────────────────────────────────
+  HOME PAGE
+──────────────────────────────────────────────────────────────────────────────*/
 #home {
-  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('../images/bg-images/bg-image.jpg');
+  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)),
+    url('../images/bg-images/bg-image.jpg');
   background-size: 120% 120%;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #fff;
+  color: var(--white);
   width: 100%;
   height: 550px;
   display: flex;
@@ -315,7 +301,6 @@ body {
   margin-top: 60px;
   position: relative;
   overflow: hidden;
-
   animation: backgroundZoom 20s ease-in-out infinite alternate;
 }
 
@@ -342,134 +327,104 @@ body {
 
 #home .lead {
   font-size: 17px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 980px;
 }
 
-#home:hover {
-  animation-play-state: reversed;
-}
-
-/* Lab Director Section (Likely on Home or About page) */
+/* Lab Director Section */
 .lab-director h2 {
-  color: #0f172a;
+  color: var(--secondary-color);
   text-align: center;
   margin-bottom: 24px;
 }
 
 .lab-director .rounded {
-  /* margin-top: 2rem; */
   padding: 2rem;
   text-align: justify;
-
-
-  background-color: #f1f5f9;
+  background-color: var(--bg-light);
   border: 1px solid rgba(241, 245, 249, 0.5);
 }
 
 .lab-director h5 {
-  color: #164e63;
+  color: var(--primary-dark);
 }
 
 .lab-director p {
-  color: #334155;
+  color: var(--text-primary);
 }
 
-/* Featured Research Section Updates */
+/*──────────────────────────────────────────────────────────────────────────────
+  RESEARCH & CARDS
+──────────────────────────────────────────────────────────────────────────────*/
 .pb-5 h2 {
-  color: #0f172a;
+  color: var(--secondary-color);
 }
 
 .pb-5 p {
-  color: #334155;
+  color: var(--text-primary);
 }
 
-/* Research Cards Updates */
 .card-title {
-  color: #164e63 !important;
+  color: var(--primary-dark) !important;
   font-weight: bold;
 }
 
 .card-text {
-  color: #334155 !important;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  color: var(--text-primary) !important;
 }
 
 .featured_researches img {
-  padding: 10px;
+  padding: var(--spacing-sm);
 }
 
-/* View All Research Projects Button */
 .btn-outline-secondary {
-  color: #06b6d4 !important;
-  border-color: #06b6d4 !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
   background-color: transparent;
 }
 
 .btn-outline-secondary:hover {
-  background-color: #06b6d4 !important;
-  border-color: #06b6d4 !important;
-  color: white !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--white) !important;
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                              HEADER SECTIONS                                 █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
+/*──────────────────────────────────────────────────────────────────────────────
+  HEADER SECTIONS
+──────────────────────────────────────────────────────────────────────────────*/
 .all-class-padding {
   padding-top: 56px;
 }
 
-/* Header/Main Sections (Common to multiple pages) */
 .all-header-main {
-  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('../images/bg-images/bg-image.jpg') center center/cover no-repeat;
+  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)),
+    url('../images/bg-images/bg-image.jpg') center center/cover no-repeat;
   height: 300px;
-  color: #fff;
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                                PEOPLE PAGE                                   █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
-#people-page h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.floating-nav.d-none.d-md-flex {
-  flex-direction: column;
-}
+/*──────────────────────────────────────────────────────────────────────────────
+  TEAM PAGE
+──────────────────────────────────────────────────────────────────────────────*/
 
 .floating-nav {
   position: fixed;
   top: 50%;
-  right: 20px;
+  right: var(--spacing-lg);
   transform: translateY(-50%);
-  background: #fff;
+  background: var(--white);
   border: 1px solid #ccc;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   text-align: center;
+  flex-direction: column;
 }
 
 .floating-nav a {
@@ -480,31 +435,28 @@ body {
   text-decoration: none;
   font-size: 14px;
   padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
 }
 
 .floating-nav a.active {
-  background-color: #164e63;
-  color: #fff;
+  background-color: var(--primary-dark);
+  color: var(--white);
 }
 
 .floating-nav a:hover:not(.active) {
-  background-color: #f1f5f9;
-  color: #334155;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
-.floating-nav a:focus {
-  text-decoration: none;
-}
-
+/* Faculty and Student Cards */
 #faculty .card {
   width: 755px;
   text-align: left;
-  padding: 20px;
-  margin-bottom: 15px;
-  background-color: #fff;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  background-color: var(--white);
 }
 
 #faculty .card-body {
@@ -523,19 +475,19 @@ body {
 #faculty img {
   max-width: 100%;
   height: 195px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .students-info-section .students-info-section-card {
   width: 755px;
-  margin: 0px auto;
+  margin: 0 auto;
   text-align: left;
-  background-color: #fff;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background-color: var(--white);
+  transition: var(--transition);
 }
 
 .students-info-section .students-info-section-card:hover {
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-5px);
 }
 
@@ -543,24 +495,11 @@ body {
   margin-top: 25px;
 }
 
-.students-info-section-card .card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.students-info-section .col-md-4 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .students-info-section img {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .students-info-section .card-text {
@@ -569,42 +508,45 @@ body {
 
 .students-info-section .card-body {
   width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                               RESEARCH PAGE                                  █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
+#faculty .card-body a,
+.students-info-section a {
+  color: #0369a1 !important;
+}
 
+/*──────────────────────────────────────────────────────────────────────────────
+  RESEARCH PAGE
+──────────────────────────────────────────────────────────────────────────────*/
 #research-page h2 {
-  font-size: 2rem;
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .research-card {
-  background: #fff;
-  border-radius: 10px;
+  background: var(--white);
+  border-radius: var(--spacing-sm);
   margin-bottom: 2rem;
   padding: 0;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .research-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-hover);
 }
 
 .research-card .col-md-5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 450px; */
   margin: auto;
 }
 
@@ -616,7 +558,7 @@ body {
   max-width: 95%;
   max-height: 95%;
   object-fit: contain;
-  padding: 10px;
+  padding: var(--spacing-sm);
 }
 
 .research-content {
@@ -624,26 +566,50 @@ body {
 }
 
 .research-title {
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   font-weight: 700;
-  color: #164e63;
+  color: var(--primary-dark);
   margin-bottom: 1rem;
 }
 
 .research-description {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   line-height: 1.6;
-  color: #334155;
+  color: var(--text-primary);
   text-align: justify;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+.research-description.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+}
+
+.read-more-btn {
+  display: inline-block;
+  font-size: 14px;
+  color: #0369a1;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .status-badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 5px 12px;
-  border-radius: 15px;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  padding: var(--spacing-xs) 12px;
+  border-radius: var(--spacing-md);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -652,21 +618,24 @@ body {
 .keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--spacing-sm);
   margin-top: 1rem;
 }
 
 .keyword-tag {
   background-color: rgba(6, 182, 212, 0.1);
-  color: #164e63;
-  padding: 5px 12px;
-  border-radius: 15px;
+  color: var(--primary-dark);
+  padding: var(--spacing-xs) 12px;
+  border-radius: var(--spacing-md);
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-/* Research Modal Overrides */
-#researchModal .modal-dialog {
+/*──────────────────────────────────────────────────────────────────────────────
+  MODAL STYLES (SHARED)
+──────────────────────────────────────────────────────────────────────────────*/
+#researchModal .modal-dialog,
+#galleryModal .modal-dialog {
   max-width: none;
   width: fit-content;
   margin: 3rem auto;
@@ -676,7 +645,8 @@ body {
   min-height: calc(100vh - 6rem);
 }
 
-#researchModal .modal-content {
+#researchModal .modal-content,
+#galleryModal .modal-content {
   border: none !important;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -686,7 +656,8 @@ body {
   position: static !important;
 }
 
-#researchModal .modal-body {
+#researchModal .modal-body,
+#galleryModal .modal-body {
   padding: 0 !important;
   text-align: center;
   display: block;
@@ -699,94 +670,37 @@ body {
   max-width: 90vw;
   max-height: 75vh;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 8px 20px rgba(104, 104, 104, 0.3);
   display: block;
 }
 
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                            PUBLICATIONS PAGE                                 █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
-/* Custom Dropdown Styles */
-.custom-dropdown {
-  position: relative;
-  display: inline-block;
-  width: 170px;
-}
-
-.custom-dropdown-toggle {
-  width: 100%;
-  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-  font-size: 13px;
-  color: #212529;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-  border: 1px solid #ced4da;
-  border-radius: 0.375rem;
-  cursor: pointer;
-
-}
-
-.custom-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.375rem;
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
-  display: none;
-}
-
-.custom-dropdown-menu.show {
-  display: block;
-}
-
-.custom-dropdown-item {
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  color: #212529;
-  font-size: 13px;
-}
-
-.custom-dropdown-item:hover {
-  background-color: #f8f9fa;
-}
-
-#noPublicationsMessage {
-  margin: 50px 0px !important;
-}
-
+/*──────────────────────────────────────────────────────────────────────────────
+  PUBLICATIONS PAGE
+──────────────────────────────────────────────────────────────────────────────*/
 #publications h2 {
-  color: #0f172a;
+  color: var(--secondary-color);
   font-weight: 700;
+}
+
+/* BibBase Button Styling - MISSING STYLES RESTORED */
+.bibbase-vidual-button {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--white) !important;
+}
+
+.bibbase-vidual-button:hover {
+  background-color: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
 }
 
 .publication-entry a {
   text-decoration: none !important;
 }
 
-.old-vidual-button {
-  background-color: #10b981 !important;
-  border-color: #10b981 !important;
-  color: white !important;
-}
-
-.old-vidual-button:hover {
-  background-color: #059669 !important;
-  border-color: #059669 !important;
+#noPublicationsMessage {
+  margin: 80px 0px !important;
 }
 
 #publications select {
@@ -819,81 +733,118 @@ body {
   background-color: #0dcaf0;
 }
 
-#publications .publication-entry {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-left: 4px solid #06b6d4;
-  border-radius: 6px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+/* Custom Dropdown */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 170px;
 }
 
-#publications .publication-entry:hover {
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+.custom-dropdown-toggle {
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  font-size: 15px;
+  color: #212529;
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--white);
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  box-shadow: var(--shadow-hover);
+  display: none;
+}
+
+.custom-dropdown-menu.show {
+  display: block;
+}
+
+.custom-dropdown-item {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: #212529;
+  font-size: 15px;
+}
+
+.custom-dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.publication-entry {
+  background-color: var(--white);
+  border: 1px solid #ddd;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.publication-entry:hover {
+  box-shadow: var(--shadow-hover);
   transform: translateY(-4px);
 }
 
-#publications .publication-entry p {
+.publication-entry p {
   margin: 0;
   color: #4d4d4d;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-#publications .publication-entry a {
+.publication-entry a {
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: var(--spacing-sm);
   font-weight: 500;
   color: #838383;
 }
 
-#publications .publication-entry a:hover {
+.publication-entry a:hover {
   text-decoration: underline;
 }
 
-.research-description {
-  margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
-.research-description.expanded {
-  display: block;
-  -webkit-line-clamp: unset;
-  -webkit-box-orient: unset;
-  overflow: visible;
+.publication-year-heading {
+  text-align: center;
 }
 
-.read-more-btn {
-  display: inline-block;
-  font-size: 14px;
-  color: #0369a1;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* PUBLICATIONS BIBBASE */
 .bibbase-publications {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
-  padding: 20px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg);
   background-color: #f8f9fa;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: var(--transition);
   text-align: justify;
 }
 
 .bibbase-publications:hover {
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-5px);
 }
 
@@ -901,62 +852,37 @@ body {
   margin-left: 0px;
 }
 
-.filter-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.filter-options .form-select,
-.filter-options .btn {
-  flex: 0 1 auto;
-  min-width: 120px;
-}
-
-.publication-year-heading {
-  text-align: center;
-}
-
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                               GALLERY PAGE                                   █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
-/* Gallery Filter Bar */
+/*──────────────────────────────────────────────────────────────────────────────
+  GALLERY PAGE
+──────────────────────────────────────────────────────────────────────────────*/
 .gallery-filter-wrapper {
   display: flex;
-  background: #ffffff;
-  border-radius: 8px;
-
-  padding: 6px 10px;
-  gap: 10px;
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 6px var(--spacing-sm);
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-hover);
 }
 
 .gallery-filter-btn {
   border: none;
   background: transparent;
-  color: #334155;
+  color: var(--text-primary);
   font-weight: 600;
   padding: 8px 18px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
   font-size: 14px;
 }
 
 .gallery-filter-btn.active {
-  background-color: #164e63;
-  color: white;
+  background-color: var(--primary-dark);
+  color: var(--white);
 }
 
 .gallery-filter-btn:hover:not(.active) {
-  background-color: #f1f5f9;
-  color: #334155;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
@@ -964,54 +890,22 @@ body {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--border-radius-sm);
 }
 
 .gallery-img:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-hover);
   border-radius: 2%;
 }
 
-/* Gallery Modal Overrides */
-#galleryModal .modal-dialog {
-  max-width: none;
-  width: fit-content;
-  margin: 3rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 6rem);
-}
-
-#galleryModal .modal-content {
-  border: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  width: fit-content !important;
-  display: block !important;
-  flex-direction: initial !important;
-  position: static !important;
-}
-
-#galleryModal .modal-body {
-  padding: 0 !important;
-  text-align: center;
-  display: block;
-}
-
-/*
-████████████████████████████████████████████████████████████████████████████████
-█                                                                              █
-█                                 FOOTER                                       █
-█                                                                              █
-████████████████████████████████████████████████████████████████████████████████
-*/
-
+/*──────────────────────────────────────────────────────────────────────────────
+  FOOTER
+──────────────────────────────────────────────────────────────────────────────*/
 footer {
-  background: #164e63 !important;
+  background: var(--primary-dark) !important;
 }
 
 .footer_element_height {
@@ -1024,86 +918,112 @@ footer img {
 }
 
 footer h6 {
-  color: #06b6d4 !important;
-  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  font-size: var(--font-size-xl);
   font-weight: bold;
 }
 
 footer p {
-  font-size: 1rem;
-  color: #f1f5f9 !important;
+  font-size: var(--font-size-base);
+  color: var(--bg-light) !important;
 }
 
 footer .text-info {
-  color: #06b6d4 !important;
+  color: var(--primary-color) !important;
 }
 
 footer small {
-  color: #f1f5f9 !important;
+  color: var(--bg-light) !important;
 }
 
 footer hr {
   margin: 8px;
 }
 
+/*──────────────────────────────────────────────────────────────────────────────
+  RESPONSIVE STYLES - SHARED MOBILE NAVIGATION
+──────────────────────────────────────────────────────────────────────────────*/
+/* Mobile Filter Bar (shared across breakpoints) */
+.mobile-filter-bar {
+  position: sticky;
+  top: 60px;
+  background: var(--white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: var(--spacing-md);
+}
 
+.mobile-filter-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+}
 
+.mobile-filter-btn {
+  padding: 8px 16px;
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 14px;
+  white-space: nowrap;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
 
+.mobile-filter-btn.active {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
 
+/* Shared Mobile Navigation Styles */
+@media (max-width: 991px) {
 
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 430px) {
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    LOGO CONTAINER
-  ───────────────────────────────────────────────────────────────────────────────*/
+  /* Logo Container Mobile Adjustments */
   .logo-container {
-    position: relative;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
+    position: relative !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .logo-container img {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     margin-right: 0 !important;
   }
 
   .logo-container a {
-    text-align: center;
-    width: 100%;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .logo-container .logo-text {
-    display: inline-block;
-    color: #06b6d4 !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
+    display: inline-block !important;
+    color: var(--primary-color) !important;
+    font-size: var(--font-size-xl) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
   }
 
-  /*──────────────────────────────────────────────────────────────────────────────
-    HAMBURGER TOGGLER
-  ───────────────────────────────────────────────────────────────────────────────*/
+  .navbar .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+
   .navbar-toggler {
     display: none !important;
   }
 
   .custom-hamburger {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1118,30 +1038,6 @@ footer hr {
     cursor: pointer;
   }
 
-  .custom-hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .custom-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .custom-hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAVBAR COLLAPSE PANEL
-  ───────────────────────────────────────────────────────────────────────────────*/
   .navbar-collapse {
     position: fixed;
     top: 70px;
@@ -1149,9 +1045,8 @@ footer hr {
     transform: translateX(-50%) scale(0);
     transform-origin: top center;
     width: 90%;
-    max-width: 200px;
-    background-color: #ffffff;
-    border-radius: 8px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     flex-direction: column;
     transition: transform 0.25s ease;
@@ -1162,9 +1057,6 @@ footer hr {
     transform: translateX(-50%) scale(1);
   }
 
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAV LINKS
-  ───────────────────────────────────────────────────────────────────────────────*/
   .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -1181,66 +1073,77 @@ footer hr {
 
   .navbar-nav .nav-link {
     display: block;
-    width: 150px;
     padding: 8px 0;
     margin: auto;
-    color: #0f172a !important;
+    color: var(--secondary-color) !important;
     text-align: center;
-    font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
     background-color: transparent;
     border-radius: 6px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition);
   }
 
   .navbar-nav .nav-link:hover {
     background-color: rgba(6, 182, 212, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: #fff !important;
+    color: var(--white) !important;
   }
 
   .navbar-nav .nav-link.active {
-    background-color: #06b6d4;
-    color: #fff !important;
+    background-color: var(--primary-color);
+    color: var(--white) !important;
   }
 
-  .navbar {
-    background: linear-gradient(135deg, #0c1426 0%, #0f172a 100%) !important;
-    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+  #home {
+    background-size: cover !important;
+    background-attachment: scroll;
+    padding: 0 5vw;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap {
+    gap: 8px;
+  }
+
+  .d-flex.justify-content-center.flex-nowrap a {
+    padding: 8px !important;
+    margin: 0 auto;
+  }
+
+  #faculty .row.justify-content-center .card {
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .students-info-section-card,
+  .students-info-section-card .card-body {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .research-content {
+    padding: 0 var(--spacing-lg) var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .research-title {
+    font-size: 20px;
+  }
+
+  .filter-options {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 430px) {
+  .navbar-collapse {
+    max-width: 200px;
   }
 
   .navbar-nav .nav-link {
-    color: #f1f5f9 !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .navbar-nav .nav-link.active {
-    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-    color: #ffffff !important;
-    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
-    border-radius: 8px;
-  }
-
-  .navbar-nav .nav-link:hover:not(.active) {
-    background: rgba(6, 182, 212, 0.1);
-    color: #000000 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.15);
-    border-radius: 6px;
-  }
-
-
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HERO SECTION ADJUSTMENTS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  #home {
-    height: 550px;
-    width: 100%;
-    padding: 0 5vw;
-    background-size: cover !important;
-    background-attachment: scroll;
+    width: 150px;
+    font-size: var(--font-size-lg);
   }
 
   #home .container {
@@ -1253,410 +1156,35 @@ footer hr {
 
   #home .lead {
     width: 380px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  #home .theme-box {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .list-unstyled {
-    margin-bottom: 0px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap {
-    gap: 8px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap a {
-    padding: 8px 8px !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PEOPLE PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-
-  .lead {
-    font-size: 18px;
-  }
-
-  .mobile-filter-bar {
-    position: sticky;
-    top: 60px;
-    background: white;
-    padding: 10px 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 15px;
-  }
-
-  .mobile-filter-tabs {
-    display: flex;
-    gap: 10px;
-  }
-
-  .mobile-filter-btn {
-    padding: 8px 16px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    color: #334155;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .mobile-filter-btn.active {
-    background-color: #164e63;
-    color: white;
-    border-color: #06b6d4;
-  }
-
-  #faculty {
-    padding-top: 0 !important;
-  }
-
-  #faculty .row.justify-content-center .card {
-    width: calc(100% - 30px) !important;
-    margin: 0 15px !important;
-    max-width: calc(100% - 30px) !important;
-  }
-
-  .students-info-section-card,
-  .students-info-section-card .card-body {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  #faculty img,
-  .students-info-section img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    RESEARCH CARDS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .research-card .col-md-5 {
-    height: 320px;
-  }
-
-  .featured_researches img {
-    padding: 5px;
-  }
-
-  .research-content {
-    padding: 0px 20px 10px 20px;
-  }
-
-  .research-description {
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .research-image {
-    padding: 2px;
-  }
-
-  .read-more-btn {
-    display: inline-block;
-    font-size: 14px;
-    color: #0369a1;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .research-description.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
-    overflow: visible;
-  }
-
-  .research-title {
-    font-size: 20px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PUBLICATIONS PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .filter-options {
-    gap: 5px;
   }
 
   .custom-dropdown {
-    position: relative;
-    display: inline-block;
     width: 115px !important;
   }
 
-  .custom-dropdown-toggle {
-    font-size: 13px;
+    .custom-dropdown-toggle,
+  .custom-dropdown-item {
+    font-size: 13px !important;
   }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    FOOTER HEADINGS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  footer h6 {
-    font-size: 20px;
-  }
-
 }
 
+/* Medium Mobile Devices */
 @media (max-width: 480px) {
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    LOGO CONTAINER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .logo-container {
-    position: relative;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo-container img {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 0 !important;
-  }
-
-  .logo-container a {
-    text-align: center;
-    width: 100%;
-  }
-
-  .logo-container .logo-text {
-    display: inline-block;
-    color: #06b6d4 !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HAMBURGER TOGGLER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .custom-hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    padding: 8px;
-    background: none;
-    border: none;
-    z-index: 1052;
-    cursor: pointer;
-  }
-
-  .custom-hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .custom-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .custom-hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAVBAR COLLAPSE PANEL
-  ───────────────────────────────────────────────────────────────────────────────*/
   .navbar-collapse {
-    position: fixed;
-    top: 70px;
-    left: 65%;
-    transform: translateX(-50%) scale(0);
-    transform-origin: top center;
-    width: 90%;
     max-width: 220px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    flex-direction: column;
-    transition: transform 0.25s ease;
-    z-index: 1051;
-  }
-
-  .navbar-collapse.show {
-    transform: translateX(-50%) scale(1);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAV LINKS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar-nav .nav-item {
-    width: 100%;
-    margin: 8px 0;
   }
 
   .navbar-nav .nav-link {
-    display: block;
     width: 170px;
-    padding: 8px 0;
-    margin: auto;
-    color: #0f172a !important;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 6px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .navbar-nav .nav-link:hover {
-    background-color: rgba(6, 182, 212, 0.15);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: #fff !important;
-  }
-
-  .navbar-nav .nav-link.active {
-    background-color: #06b6d4;
-    color: #fff !important;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HERO SECTION ADJUSTMENTS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  #home {
-    height: 550px;
-    width: 100%;
-    padding: 0 5vw;
-    background-size: cover !important;
-    background-attachment: scroll;
+    font-size: var(--font-size-lg);
   }
 
   #home .container {
     width: 440px;
   }
 
-  #home h1 {
-    font-size: 32px;
-  }
-
   #home .lead {
     width: 400px;
-  }
-
-  #home .theme-box {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .list-unstyled {
-    margin-bottom: 0px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap {
-    gap: 12px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap a {
-    padding: 9px 10px !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PEOPLE PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-
-  .mobile-filter-bar {
-    position: sticky;
-    top: 60px;
-    background: white;
-    padding: 10px 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 15px;
-  }
-
-  .mobile-filter-tabs {
-    display: flex;
-    gap: 10px;
-  }
-
-  .mobile-filter-btn {
-    padding: 8px 16px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    color: #334155;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .mobile-filter-btn.active {
-    background-color: #164e63;
-    color: white;
-    border-color: #06b6d4;
-  }
-
-  #faculty {
-    padding-top: 0 !important;
-  }
-
-  #faculty .row.justify-content-center .card {
-    width: calc(100% - 30px) !important;
-    margin: 0 15px !important;
-    max-width: calc(100% - 30px) !important;
-  }
-
-  .students-info-section-card,
-  .students-info-section-card .card-body {
-    width: 100% !important;
-    max-width: 100% !important;
   }
 
   #faculty img {
@@ -1667,335 +1195,28 @@ footer hr {
   .students-info-section img {
     width: 200px !important;
     height: 200px !important;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    RESEARCH CARDS
-  ───────────────────────────────────────────────────────────────────────────────*/
-
-  .featured_researches img {
-    padding: 5px;
-  }
-
-  .research-content {
-    padding: 0px 20px 10px 20px;
-  }
-
-  .research-description {
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .read-more-btn {
-    display: inline-block;
-    font-size: 14px;
-    color: #0369a1;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .research-description.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
-    overflow: visible;
-  }
-
-  .research-title {
-    font-size: 20px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PUBLICATIONS PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .filter-options {
-    gap: 5px;
   }
 
   .custom-dropdown {
-    position: relative;
-    display: inline-block;
     width: 130px;
   }
 
-  .custom-dropdown-toggle {
-    font-size: 15px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    FOOTER HEADINGS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  footer h6 {
-    font-size: 20px;
+  .custom-dropdown-toggle,
+  .custom-dropdown-item {
+    font-size: 13px !important;
   }
 }
 
-
-@media(min-width: 481px) and (max-width: 768px) {
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    LOGO CONTAINER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .logo-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 12px;
-    padding: 0;
-    margin: 0;
-    background: none !important;
-    box-shadow: none !important;
-    min-width: 0;
-    width: auto;
-    flex: 1 1 0;
-  }
-
-  .logo-img-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-text-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .logo-link {
-    color: #06b6d4 !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    white-space: nowrap;
-    text-decoration: none;
-    margin-left: 0;
-  }
-
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HAMBURGER TOGGLER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .custom-hamburger {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-left: 0;
-    margin-right: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .custom-hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .custom-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .custom-hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAVBAR COLLAPSE PANEL
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar .container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 46px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-
+/* Tablet Portrait */
+@media (min-width: 481px) and (max-width: 768px) {
   .navbar-collapse {
-    position: fixed;
-    top: 70px;
-    left: 75%;
-    transform: translateX(-50%) scale(0);
-    transform-origin: top center;
-    width: 90%;
     max-width: 220px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    flex-direction: column;
-    transition: transform 0.25s ease;
-    z-index: 1051;
-  }
-
-  .navbar-collapse.show {
-    transform: translateX(-50%) scale(1);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAV LINKS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar-nav .nav-item {
-    width: 100%;
-    margin: 8px 0;
+    left: 75%;
   }
 
   .navbar-nav .nav-link {
-    display: block;
     width: 190px;
-    padding: 8px 0;
-    margin: auto;
-    color: #0f172a !important;
-    text-align: center;
     font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 6px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .navbar-nav .nav-link:hover {
-    background-color: rgba(6, 182, 212, 0.15);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: #fff !important;
-  }
-
-  .navbar-nav .nav-link.active {
-    background-color: #06b6d4;
-    color: #fff !important;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HERO SECTION ADJUSTMENTS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  #home {
-    height: 550px;
-    width: 100%;
-    padding: 0 5vw;
-    background-size: cover !important;
-    background-attachment: scroll;
-  }
-
-  #home .container {
-    width: 440px;
-  }
-
-  #home h1 {
-    font-size: 32px;
-  }
-
-  #home .lead {
-    width: 400px;
-  }
-
-  #home .theme-box {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .list-unstyled {
-    margin-bottom: 0px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap {
-    gap: 12px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap a {
-    padding: 9px 10px !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PEOPLE PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-
-  .mobile-filter-bar {
-    position: sticky;
-    top: 60px;
-    background: white;
-    padding: 10px 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 15px;
-  }
-
-  .mobile-filter-tabs {
-    display: flex;
-    gap: 10px;
-  }
-
-  .mobile-filter-btn {
-    padding: 8px 16px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    color: #334155;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .mobile-filter-btn.active {
-    background-color: #164e63;
-    color: white;
-    border-color: #06b6d4;
-  }
-
-  #faculty {
-    padding-top: 0 !important;
-  }
-
-  #faculty .row.justify-content-center .card {
-    width: calc(100% - 30px) !important;
-    margin: 0 15px !important;
-    max-width: calc(100% - 30px) !important;
-  }
-
-  .students-info-section-card,
-  .students-info-section-card .card-body {
-    width: 100% !important;
-    max-width: 100% !important;
   }
 
   #faculty img {
@@ -2009,280 +1230,37 @@ footer hr {
   }
 }
 
-
-/* Target all tablets (portrait) */
+/* Tablet Landscape */
 @media (min-width: 768px) and (max-width: 991px) {
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    LOGO CONTAINER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .logo-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 12px;
-    padding: 0;
-    margin: 0;
-    background: none !important;
-    box-shadow: none !important;
-    min-width: 0;
-    width: auto;
-    flex: 1 1 0;
-  }
-
-  .logo-img-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-text-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .logo-link {
-    color: #06b6d4 !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    white-space: nowrap;
-    text-decoration: none;
-    margin-left: 0;
-  }
-
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HAMBURGER TOGGLER
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .custom-hamburger {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-left: 0;
-    margin-right: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .custom-hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .custom-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .custom-hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAVBAR COLLAPSE PANEL
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar .container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 46px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-
   .navbar-collapse {
-    position: fixed;
-    top: 70px;
-    left: 75%;
-    transform: translateX(-50%) scale(0);
-    transform-origin: top center;
-    width: 90%;
     max-width: 250px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    flex-direction: column;
-    transition: transform 0.25s ease;
-    z-index: 1051;
-  }
-
-  .navbar-collapse.show {
-    transform: translateX(-50%) scale(1);
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    NAV LINKS
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar-nav .nav-item {
-    width: 100%;
-    margin: 8px 0;
+    left: 75%;
   }
 
   .navbar-nav .nav-link {
-    display: block;
     width: 210px;
-    padding: 8px 0;
-    margin: auto;
-    color: #0f172a !important;
-    text-align: center;
     font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 6px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .navbar-nav .nav-link:hover {
-    background-color: rgba(6, 182, 212, 0.15);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: #fff !important;
-  }
-
-  .navbar-nav .nav-link.active {
-    background-color: #06b6d4;
-    color: #fff !important;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    HERO SECTION ADJUSTMENTS
-  ───────────────────────────────────────────────────────────────────────────────*/
   #home {
     height: 490px;
-    width: 100%;
-    padding: 0 5vw;
-    background-size: cover !important;
-    background-attachment: scroll;
   }
 
   #home .container {
     width: 730px;
   }
 
-  #home h1 {
-    font-size: 32px;
-  }
-
   #home .lead {
     width: 650px !important;
-  }
-
-  #home .theme-box {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .list-unstyled {
-    margin-bottom: 0px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap {
-    gap: 12px;
-  }
-
-  .d-flex.justify-content-center.flex-nowrap a {
-    padding: 9px 10px !important;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .lab-director {
     max-width: 720px !important;
   }
 
-  /*──────────────────────────────────────────────────────────────────────────────
-    PEOPLE PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-
-  .mobile-filter-bar {
-    position: sticky;
-    top: 60px;
-    background: white;
-    padding: 10px 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 15px;
-  }
-
-  .mobile-filter-tabs {
-    display: flex;
-    gap: 10px;
-  }
-
-  .mobile-filter-btn {
-    padding: 8px 16px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    color: #334155;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .mobile-filter-btn.active {
-    background-color: #164e63;
-    color: white;
-    border-color: #06b6d4;
-  }
-
-  #faculty {
-    padding-top: 0 !important;
-  }
-
-  #faculty .row.justify-content-center .card {
-    width: calc(100% - 30px) !important;
-    margin: 0 15px !important;
-    max-width: calc(100% - 30px) !important;
-  }
-
-  .students-info-section-card,
-  .students-info-section-card .card-body {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .students-info-section .card-body {
-    padding-left: 15px !important;
-    padding-right: 30px !important;
-  }
-
   #faculty .card {
     height: 300px !important;
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
   }
 
   #faculty img {
@@ -2295,22 +1273,23 @@ footer hr {
     height: 200px !important;
   }
 
-  #floating-nav {
-    display: flex !important;
-    flex-direction: column;
+  .students-info-section .card-body {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-xl) !important;
   }
 
   #faculty p {
     font-size: 18px;
   }
 
-  #faculty h2 {
-    padding-top: 24px;
+  .featured_researches .card-text {
+    font-size: 14px;
   }
 
-  /*──────────────────────────────────────────────────────────────────────────────
-    RESEARCH CARDS
-  ───────────────────────────────────────────────────────────────────────────────*/
+  .custom-dropdown {
+    width: 185px;
+  }
+
   .research-title {
     padding-top: 10px;
   }
@@ -2319,73 +1298,16 @@ footer hr {
     padding: 5px;
   }
 
-  .featured_researches .card-text {
-    font-size: 14px;
-  }
-
   .research-content {
-    padding: 0px 20px 10px 20px;
+    padding: 0px 20px 10px 20px !important;
   }
 
-  .research-description {
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .read-more-btn {
-    display: inline-block;
-    font-size: 14px;
-    color: #0369a1;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .research-description.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
-    overflow: visible;
-  }
-
-  .research-title {
-    font-size: 20px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    PUBLICATIONS PAGE
-  ───────────────────────────────────────────────────────────────────────────────*/
-  .filter-options {
-    gap: 5px;
-  }
-
-  .custom-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 185px;
-  }
-
-  .custom-dropdown-toggle {
-    font-size: 15px;
-  }
-
-  /*──────────────────────────────────────────────────────────────────────────────
-    FOOTER HEADINGS
-  ───────────────────────────────────────────────────────────────────────────────*/
   footer h6 {
     font-size: 13px;
   }
 
   footer p,
-  small {
+  footer small {
     font-size: 12px;
   }
-
-
 }
