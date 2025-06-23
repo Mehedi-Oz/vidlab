@@ -497,7 +497,7 @@ body {
 
 .students-info-section img {
   width: 160px;
-  height: 160px;
+  height: 120px;
   object-fit: cover;
   border-radius: var(--border-radius);
 }
