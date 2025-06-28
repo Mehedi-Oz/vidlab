@@ -519,6 +519,22 @@ body {
   color: #0369a1 !important;
 }
 
+.recent_news img {
+  width: auto;
+  height: 250px;
+}
+
+.recent_news .recent_news_time {
+  color: var(--primary-color);
+}
+
+.recent_news a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+
+
 /*──────────────────────────────────────────────────────────────────────────────
   RESEARCH PAGE
 ──────────────────────────────────────────────────────────────────────────────*/
@@ -1162,7 +1178,7 @@ footer hr {
     width: 115px !important;
   }
 
-    .custom-dropdown-toggle,
+  .custom-dropdown-toggle,
   .custom-dropdown-item {
     font-size: 13px !important;
   }
