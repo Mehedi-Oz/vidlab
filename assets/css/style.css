@@ -862,6 +862,31 @@ body {
 }
 
 /*──────────────────────────────────────────────────────────────────────────────
+  NEWS PAGE
+──────────────────────────────────────────────────────────────────────────────*/
+.recent_news_card .card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  max-height: calc(1.2em * 2);
+}
+
+.recent_news_card .card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  max-height: calc(1.4em * 2);
+}
+
+/*──────────────────────────────────────────────────────────────────────────────
   GALLERY PAGE
 ──────────────────────────────────────────────────────────────────────────────*/
 .gallery-filter-wrapper {

@@ -10,6 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -54,77 +55,118 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
           <li class="nav-item"><a class="nav-link" href="researchs.html">Research</a></li>
           <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link active" href="news.html">News</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- News Grid -->
-  <section class="mb-5">
-    <div class="container news div_items_max_width">
-      <div class="news_heading">
-        <p class="">JUNE 28</p>
-        <h3 class="pb-3">SPOTLIGHTS ON: Interview with our PI about her recent cool Mars paper published
-          in the Spectroscopy Magazine</h3>
-        <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (1).jpg">
-        <p class="recent_news_time">Alef is showing his new isolated extremophiles in the Yesilbas Lab.</p>
-      </div>
-      <hr>
-      <div class="news_body">
-        <h5>Congratulations to our PI Merve on her new Mars paper!</h5>
-        <p>We are thrilled to announce that our PI’s latest research article, “Geochemical Transformations of Gypsum
-          Under Multiple Environmental Settings and Implications for Ca-Sulfate Detection on Mars”, has been published
-          in the ACS Earth and Space Chemistry!
 
-          Our PI Merve expressed that - “I am incredibly proud of this comprehensive work that includes many different
-          spectroscopic techniques (e.g., Mid-IR, VNIR, and Raman) and X-ray diffraction method to examine gypsum-Cl
-          salt interactions from -90 to 400 °C. This work revealed the importance of how different geochemical process
-          affect the detectability of transformation of gypsum. This research has been a journey of discovery and
-          collaboration, and I am excited about the potential impact it may have on ongoing and future Mars missions. I
-          think, this paper also shows the importance of Mars Sample Return Mission and to collect data in the
-          controlled lab environments.
-
-          This research would not have been possible without the support and collaboration of my colleagues. I would
-          like to extend my deepest gratitude to all the co-authors in this paper from NASA Jet Propulsion Laboratory
-          (JPL), SETI Institute, and Univ. of Grenoble Alpes.
-
-          I would also like to acknowledge the funding from Swedish Research Council Starting Grant (VR-2021-05859),
-          NASA Astrobiology Institute Early Career Collaboration Award, NASA Solar System Workings, Kempe Foundation
-          (JCK22-0065) and the Europlanet TA program.”
-
-          For those interested in exploring the full details of our PI’s paper, you can access the article in below
-          button.</p>
-      </div>
-      <hr>
-      <div class="news_footer text-center">
-        <a href="" class="btn btn-outline-secondary">Read the full article</a>
+  <!-- Overlay for mobile menu -->
+  <div class="menu-overlay" id="menuOverlay"></div>
 
 
-      </div>
+  <!-- Header -->
+  <section class="py-5 text-center all-header-main">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Recent News & Achievements</h2>
+      <p class="lead">Discover recent developments and research milestones shaping intelligent systems.</p>
+    </div>
   </section>
 
 
+  <section class="py-5">
+    <div class="mx-auto div_items_max_width">
+      <div class="container featured_researches recent_news_card">
+        <div class="row g-4">
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (1).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 28, 2025</p>
+                <h5 class="card-title">SPOTLIGHTS ON: Interview with our PI about her recent cool Mars paper published
+                  in the Spectroscopy Magazine!</h5>
+                <p class="card-text">Our PI Merve was interviewed about her recent research on gypsum transformations
+                  under Martian conditions that featured in Spectroscopy Magazine under "National Space Day" theme!</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (2).jpg" class="card-img-top img-fluid" alt="news (2).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 28, 2025</p>
+                <h5 class="card-title">We are welcoming to our new PhD student, Zoe Asimaki!</h5>
+                <p class="card-text">We are thrilled to welcome our new PhD student Zoe Asimaki into our team!</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (3).jpg" class="card-img-top img-fluid" alt="news (3).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 28, 2025</p>
+                <h5 class="card-title">YESILBAS LAB is on SPOTLIGHT: Interview with our Kempe Postdoc Fellow Alef on
+                  Umeå University</h5>
+                <p class="card-text">Congratulations to our Kempe postdoc fellow Dr. Santos for a wonderful interview
+                  that published in Umea University!</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (3).jpg" class="card-img-top img-fluid" alt="news (4).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 15, 2025</p>
+                <h5 class="card-title">Research Grant Award for AI in Healthcare Applications</h5>
+                <p class="card-text">VIDLab has been awarded a significant research grant to develop AI solutions for
+                  healthcare diagnostics and patient monitoring systems.</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (5).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 10, 2025</p>
+                <h5 class="card-title">Conference Presentation at International Computer Vision Summit</h5>
+                <p class="card-text">Our team presented groundbreaking research on deep learning applications in
+                  autonomous vehicle navigation at the prestigious ICVS conference.</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="card card-hover h-100">
+              <img src="assets/images/news/news (2).jpg" class="card-img-top img-fluid" alt="news (6).jpg">
+              <div class="card-body">
+                <p class="recent_news_time">June 5, 2025</p>
+                <h5 class="card-title">New Partnership with Industry Leaders in Machine Learning</h5>
+                <p class="card-text">VIDLab announces strategic partnerships with leading technology companies to
+                  advance collaborative research in machine learning and data analytics.</p>
+                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
 
-
-
-
-
-
-
-
-
-
-
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- Footer -->
@@ -183,7 +225,6 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>
