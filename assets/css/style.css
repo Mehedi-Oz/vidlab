@@ -958,7 +958,7 @@ body {
   FOOTER
 ──────────────────────────────────────────────────────────────────────────────*/
 footer {
-  background: var(--primary-dark) !important;
+  background: var(--secondary-color) !important;
 }
 
 .footer_element_height {

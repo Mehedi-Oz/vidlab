@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News</title>
+  <title>News Details</title>
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link
@@ -15,43 +15,31 @@
 </head>
 
 <body class="all-class-padding">
-  <!-- PAGE LOADER: runs until window.load, then disappears -->
+  <!-- PAGE LOADER -->
   <div id="pageLoader">
     <div class="loader-bars">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span><span></span><span></span>
     </div>
   </div>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
-
       <div class="logo-container navbar-brand">
         <div class="logo-img-wrapper">
-          <img src="assets/images/favicon.png" alt="Favicon" class="logo-img" style="width: 23px; height: 23px;">
+          <img src="assets/images/favicon.png" alt="Favicon" class="logo-img" style="width:23px;height:23px;">
         </div>
         <div class="logo-text-wrapper">
           <a href="index.html" class="logo-link">VIDLab</a>
         </div>
       </div>
-
-      <!-- Bootstrap toggler (hidden on mobile) -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- Custom hamburger menu (shown on mobile) -->
       <button class="custom-hamburger" id="customHamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -65,60 +53,20 @@
     </div>
   </nav>
 
-
-  <!-- Overlay for mobile menu -->
+  <!-- Overlay for mobile -->
   <div class="menu-overlay" id="menuOverlay"></div>
 
-  <!-- News Grid -->
-  <section class="mb-5">
-    <div class="container news div_items_max_width">
-      <div class="news_heading">
-        <p class="">JUNE 28</p>
-        <h3 class="pb-3">SPOTLIGHTS ON: Interview with our PI about her recent cool Mars paper published
-          in the Spectroscopy Magazine</h3>
-        <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (1).jpg">
-        <p class="recent_news_time">Alef is showing his new isolated extremophiles in the Yesilbas Lab.</p>
-      </div>
-      <hr>
-      <div class="news_body">
-        <h5>Congratulations to our PI Merve on her new Mars paper!</h5>
-        <p>We are thrilled to announce that our PI’s latest research article, “Geochemical Transformations of Gypsum
-          Under Multiple Environmental Settings and Implications for Ca-Sulfate Detection on Mars”, has been published
-          in the ACS Earth and Space Chemistry!
-
-          Our PI Merve expressed that - “I am incredibly proud of this comprehensive work that includes many different
-          spectroscopic techniques (e.g., Mid-IR, VNIR, and Raman) and X-ray diffraction method to examine gypsum-Cl
-          salt interactions from -90 to 400 °C. This work revealed the importance of how different geochemical process
-          affect the detectability of transformation of gypsum. This research has been a journey of discovery and
-          collaboration, and I am excited about the potential impact it may have on ongoing and future Mars missions. I
-          think, this paper also shows the importance of Mars Sample Return Mission and to collect data in the
-          controlled lab environments.
-
-          This research would not have been possible without the support and collaboration of my colleagues. I would
-          like to extend my deepest gratitude to all the co-authors in this paper from NASA Jet Propulsion Laboratory
-          (JPL), SETI Institute, and Univ. of Grenoble Alpes.
-
-          I would also like to acknowledge the funding from Swedish Research Council Starting Grant (VR-2021-05859),
-          NASA Astrobiology Institute Early Career Collaboration Award, NASA Solar System Workings, Kempe Foundation
-          (JCK22-0065) and the Europlanet TA program.”
-
-          For those interested in exploring the full details of our PI’s paper, you can access the article in below
-          button.</p>
-      </div>
-      <hr>
-      <div class="news_footer text-center">
-        <a href="" class="btn btn-outline-secondary">Read the full article</a>
-
-
-      </div>
+  <!-- News Details Content -->
+  <section class="py-5">
+    <div class="container div_items_max_width" id="newsDetailsContainer">
+      <!-- JS will inject the news details here -->
+      <div class="text-center">Loading news details...</div>
+    </div>
   </section>
 
-
   <!-- Footer -->
-  <footer class="bg-dark text-light pt-3 ">
+  <footer class="text-light pt-3">
     <div class="container">
-
-      <!-- Desktop/tablet footer: visible from md and up -->
       <div class="row text-center footer_element_height d-none d-md-flex">
         <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
           <h6 class="fw-bold">Vision Intelligence and Data Lab</h6>
@@ -128,7 +76,7 @@
         <div class="col-md-4 d-flex align-items-center justify-content-center">
           <img src="assets/images/lablogo.png" alt="Logo" class="img-fluid footer-logo">
         </div>
-        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center  text-center">
+        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
           <h6 class="fw-bold">Address</h6>
           <p>Vision Intelligence and Data Lab<br>
             Lakehead University<br>
@@ -139,37 +87,29 @@
           </p>
         </div>
       </div>
-
-      <!-- Mobile-only footer: visible below md -->
       <div class="row d-flex d-md-none text-center justify-content-center">
         <div class="col-12 d-flex flex-column align-items-center text-center">
           <h6 class="fw-bold">Vision Intelligence and Data Lab</h6>
-          <p>
-            Lakehead University<br>
-            Thunder Bay, Ontario, Canada<br>
+          <p>Lakehead University<br>Thunder Bay, Ontario, Canada<br>
             Monday to Friday (8.00AM - 5.00PM)<br>
             <a href="https://www.google.com/maps/search/Lakehead+University,+Thunder+Bay,+Ontario,+Canada/@48.424393,-89.2591852,14z"
               class="text-info text-decoration-none">Location</a>
           </p>
         </div>
       </div>
-
       <hr class="border-secondary">
-      <!-- Desktop/tablet footer: visible from md and up -->
       <div class="text-center pb-3 d-none d-md-block">
         <small>© 2025 Vision Intelligence and Data Lab. All rights reserved.</small>
       </div>
-
-      <!-- Mobile-only footer: visible below md -->
       <div class="text-center pb-3 d-block d-md-none">
         <small>© 2025 VIDLab. All rights reserved.</small>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/news.js"></script>
 </body>
-
 </html>

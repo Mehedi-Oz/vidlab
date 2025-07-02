@@ -192,57 +192,31 @@
       <div class="container featured_researches recent_news_card">
         <h2 class="fw-bold text-center mb-3">Recent News</h2>
         <p class="mb-3 text-center">Learn about our recent developments, published works, and research milestones that
-          are shaping
-          the future of intelligent systems.</p>
+          are shaping the future of intelligent systems.</p>
         <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card card-hover">
-              <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (1).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 28, 2025</p>
-                <h5 class="card-title">SPOTLIGHTS ON: Interview with our PI about her recent cool Mars paper published
-                  in the Spectroscopy Magazine!</h5>
-                <p class="card-text">Our PI Merve was interviewed about her recent research on gypsum transformations
-                  under Martian conditions that featured in Spectroscopy Magazine under “National Space Day” theme!</p>
-                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-hover">
-              <img src="assets/images/news/news (2).jpg" class="card-img-top img-fluid" alt="news (2).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 28, 2025</p>
-                <h5 class="card-title">We are welcoming to our new PhD student, Zoe Asimaki!</h5>
-                <p class="card-text">We are thrilled to welcome our new PhD student Zoe Asimaki into our team!</p>
-                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-hover">
-              <img src="assets/images/news/news (3).jpg" class="card-img-top img-fluid" alt="news (3).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 28, 2025</p>
-                <h5 class="card-title">YESILBAS LAB is on SPOTLIGHT: Interview with our Kempe Postdoc Fellow Alef on
-                  Umeå University</h5>
-                <p class="card-text">Congratulations to our Kempe postdoc fellow Dr. Santos for a wonderful interview
-                  that published in Umea University!</p>
-                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-3 text-center">
-            <a href="news.html" class="btn btn-outline-secondary">View All News Articles</a>
-          </div>
+          <!-- JS will inject news cards -->
+        </div>
+        <div class="mt-3 text-center">
+          <a href="news.html" class="btn btn-outline-secondary">View All News Articles</a>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="modal fade" id="newsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newsModalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="newsModalContent"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer class="bg-dark text-light pt-3 ">
+  <footer class="text-light pt-3 ">
     <div class="container">
 
       <!-- Desktop/tablet footer: visible from md and up -->
@@ -296,8 +270,15 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/news.js"></script>
   <script src="assets/js/script.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+Implement dynamic news article details with previous/next navigation, unify navbar/footer colors, and fix Read More button styling for consistency.
