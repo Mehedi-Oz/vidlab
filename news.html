@@ -93,7 +93,7 @@
                   in the Spectroscopy Magazine!</h5>
                 <p class="card-text">Our PI Merve was interviewed about her recent research on gypsum transformations
                   under Martian conditions that featured in Spectroscopy Magazine under "National Space Day" theme!</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@
                 <p class="recent_news_time">June 28, 2025</p>
                 <h5 class="card-title">We are welcoming to our new PhD student, Zoe Asimaki!</h5>
                 <p class="card-text">We are thrilled to welcome our new PhD student Zoe Asimaki into our team!</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -119,46 +119,7 @@
                   Umeå University</h5>
                 <p class="card-text">Congratulations to our Kempe postdoc fellow Dr. Santos for a wonderful interview
                   that published in Umea University!</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card card-hover h-100">
-              <img src="assets/images/news/news (3).jpg" class="card-img-top img-fluid" alt="news (4).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 15, 2025</p>
-                <h5 class="card-title">Research Grant Award for AI in Healthcare Applications</h5>
-                <p class="card-text">VIDLab has been awarded a significant research grant to develop AI solutions for
-                  healthcare diagnostics and patient monitoring systems.</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card card-hover h-100">
-              <img src="assets/images/news/news (1).jpg" class="card-img-top img-fluid" alt="news (5).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 10, 2025</p>
-                <h5 class="card-title">Conference Presentation at International Computer Vision Summit</h5>
-                <p class="card-text">Our team presented groundbreaking research on deep learning applications in
-                  autonomous vehicle navigation at the prestigious ICVS conference.</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card card-hover h-100">
-              <img src="assets/images/news/news (2).jpg" class="card-img-top img-fluid" alt="news (6).jpg">
-              <div class="card-body">
-                <p class="recent_news_time">June 5, 2025</p>
-                <h5 class="card-title">New Partnership with Industry Leaders in Machine Learning</h5>
-                <p class="card-text">VIDLab announces strategic partnerships with leading technology companies to
-                  advance collaborative research in machine learning and data analytics.</p>
-                <a href="news_1.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="news_details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -168,6 +129,19 @@
     </div>
   </section>
 
+  <div class="row g-4"></div>
+
+  <div class="modal fade" id="newsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newsModalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="newsModalContent"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-dark text-light pt-3 ">
@@ -224,7 +198,7 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/news.js"></script>
 </body>
 
 </html>
