@@ -130,6 +130,7 @@ body {
   color: var(--primary-color);
   width: 100%;
   max-width: 980px;
+  text-align: left;
 }
 
 .theme-box ul li {
